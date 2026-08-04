@@ -1,0 +1,27 @@
+{
+  "tag": "c1",
+  "clients": 1,
+  "mode": "rate",
+  "period_ms": 250.0,
+  "requests_per_client": 30,
+  "wall_s": 7.377932617906481,
+  "total_requests": 30,
+  "throughput_rps": 4.066179721835495,
+  "e2e_mean_ms": 75.41241215852399,
+  "e2e_p99_ms": 81.60753082484007,
+  "per_client": [
+    {
+      "cid": 0,
+      "n": 30,
+      "wall_s": 7.329358386807144,
+      "achieved_hz": 4.09312772233925,
+      "e2e_mean": 75.41241215852399,
+      "e2e_p50": 74.55493183806539,
+      "e2e_p99": 81.60753082484007,
+      "e2e_max": 81.60753082484007,
+      "missed": 0
+    }
+  ],
+  "missed_total": 0,
+  "missed_pct": 0.0
+}
