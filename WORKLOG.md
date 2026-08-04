@@ -194,3 +194,93 @@ saturate (c4): 16.19 r/s / e2e 240.0 ms (GB10 6.80 r/s / 575.7 ms) — 2.38배.
 
 ### 관련 이슈
 - 없음
+
+---
+
+## [2026-08-04 17:30] 동적 배칭 / continuous batching / 레이어 축 chunked prefill 검토 — 실측으로 판정
+
+### 실행 환경
+| 항목 | 값 |
+|------|-----|
+| 스크립트 | `bench_split_compiled.py`(신규), `bench_scheduler.py`(신규) |
+| 모델 | pi0.5 LIBERO (`pi05_libero`, PyTorch bf16), `torch.compile(mode="max-autotune")` |
+| GPU | A100 80GB PCIe ×1 (`CUDA_VISIBLE_DEVICES=0`), 단독 점유 확인 |
+| 주요 파라미터 | 배치 1–16, Euler steps 1/5/10, 로봇 4·6대, 위상 0/40/85/120/190/230 ms, 데드라인 250 ms |
+
+### 변경 사항
+| 파일 | 유형 | 설명 |
+|------|------|------|
+| `bench_split_compiled.py` | 생성 | 컴파일 경로에서 prefill/denoise 분해. num_steps 3점 최소자승 피팅으로 선형성까지 검증 |
+| `bench_scheduler.py` | 생성 | 위상 어긋난 도착 트레이스를 실제 모델에 재생. serial / batch / continuous 3정책 비교 |
+| `RESULTS_A100.md` | 수정 | §3(분해·수용량), §4(스케줄링 실측) 추가, §7 권장안 갱신 |
+| `.gitignore` | 수정 | `logs/*.log` 추적, nsys 바이너리(182 MB) 제외 |
+| `profiling/baselines/a100/` | 추가 | `bench_split_compiled.json`, `bench_scheduler*.json` |
+
+### 작업 상세
+
+**배경.** `PORTING_A100.md` §7의 "동적 배칭을 붙이는 것이 남은 큰 작업"을 실제로 검증.
+prefill과 denoise를 분리해 스케줄링하면 SLO를 더 잘 지킬 수 있는지가 질문이었음.
+
+**1. eager 분해가 틀렸음을 발견.** `bench_batch.py`의 prefill/denoise 분해는 비컴파일
+경로에서 잰 것이고, 그 표는 "denoise가 80%이고 배치에 평평하다 = 묶는 게 공짜"로 읽힘.
+컴파일 경로에서 다시 재니 **정반대**: prefill 60.2%(33.1 ms), denoise 39.8%(21.8 ms),
+denoise 1스텝이 41.8 → **2.2 ms(19배)**. denoise 루프에 런치 오버헤드가 집중돼 있었음.
+prefill은 배치를 거의 안 탐(로봇당 33.1 → 25.7 ms, 1.3배).
+
+**2. 수용량 실측.** 250 ms 데드라인에서 배치별 총지연 — 4대 162.5 / 5대 187.1 /
+**6대 216.5** / 7대 248.2(p99 250.4로 초과) / 8대 280.7 ms. **GPU당 6대가 상한.**
+
+**3. 위상 어긋난 도착에서 스케줄링 3종 비교.**
+
+| 로봇 6대 (요구 24 req/s) | 처리량 | e2e 평균 | 미스 |
+|---|---:|---:|---:|
+| serial | 16.75 | 474.6 ms | 75.0% |
+| batch | **22.10** | **200.4 ms** | **18.8%** |
+| continuous | 20.56 | 472.3 ms | 100% |
+
+| 로봇 4대 (요구 16 req/s) | 처리량 | e2e 평균 | 미스 |
+|---|---:|---:|---:|
+| serial | 15.96 | **66.7 ms** | **0%** |
+| batch | 15.81 | 77.1 ms | 0% |
+| continuous | 15.45 | 215.1 ms | 12.5% |
+
+**결론: 동적 배칭만 하고 denoise 링은 하지 말 것.** 링은 두 부하 구간 모두에서 최악.
+
+**4. 링이 지는 이유 — 계측으로 특정.** 설계 전 가장 우려한 KV 재병합은 틱당 1.1–1.3 ms로
+무관했음. 실제 원인은 **요청당 CUDA 그래프 실행이 1회 → 11회(prefill + denoise 10)로
+늘어나는 것.** 이 박스는 GPU-busy 75%의 호스트 바운드라 실행 횟수가 그대로 비용
+(denoise 1스텝 실측 3.0–3.5 ms vs 순수 계산 2.2 ms). 포화 구간에서는 추가로,
+완료가 슬롯을 하나씩만 열어 prefill이 B=1로 고정됨(48회 × 32 ms) — admission을
+배치로 바꿔도(대기 3대 또는 25 ms) 해결 안 됨.
+
+**5. 레이어 축 chunked prefill은 구현하지 않음.** 시퀀스 축은 애초에 불가
+(`embed_prefix`가 prefix 전체에 `att_masks = 0`을 줘 양방향). 레이어 축은 가능하고
+비용 추정도 유리했으나(청크당 ~0.8 ms), **요청을 11조각에서 16조각 이상으로 더 잘게
+나누는 방향**이라 4번 결과와 정면으로 배치돼 중단. 이 박스에서 남은 여지는 런치 수를
+**줄이는** 쪽.
+
+**6. 부수 확인 — continuous batching의 전제는 성립함.** 별도 prefill한 요청들의
+KV(DynamicCache 18층, prefix 968토큰)를 배치 축으로 합쳐 서로 다른 timestep으로
+denoise해도 결과 일치(상대오차 1.7e-3 / 4.9e-3, bf16 수준). `sample_actions`가 이미
+timestep을 per-sample로 넘기므로 모델 수정 불필요. **모델은 준비돼 있고, 이 박스가
+그 이득을 못 받는 것.**
+
+**측정 함정 (중요).** 스케줄러 벤치는 세 번 틀렸고 매번 에러가 아니라 **말도 안 되는
+지연**으로 나타남(동적 배칭 2.62 req/s, 요청 하나 240초). 원인 순서: (a) 워밍업 형상을
+손으로 맞추다 링의 KV 누락, (b) dry run은 그 패스에 안 나온 배치 크기를 못 덮음,
+(c) **inductor cudagraph trees는 같은 형상의 두 번째 호출에서 그래프를 기록** — 형상당
+1회 워밍은 8.3초짜리 기록을 측정 구간에 남김. 근처에 AUTOTUNE 로그가 없다는 점이
+재컴파일이 아님을 알려줬고, 워밍업에서 B=3~8이 0.4초 만에 끝난 것이 단서였음.
+현재는 형상당 3회 워밍하고 **B≥3 워밍이 10초대로 나오는지**를 기록 증거로 사용.
+
+### 로그
+- `logs/2026-08-04_17-30_split_compiled.log`, `logs/2026-08-04_17-50_split_b567.log`
+- `logs/2026-08-04_18-10_spike_merge_kv.log` (KV 병합 타당성)
+- `logs/2026-08-04_20-00_batch_diag.log` (형상별 첫 호출 8.3초 특정)
+- `logs/2026-08-04_20-30_scheduler_full3.log` (6대 본 측정)
+- `logs/2026-08-04_21-00_ring_diag.log` (틱별 병합/denoise/prefill 분해)
+- `logs/2026-08-04_21-30_scheduler_final.log` (배치 admission)
+- `logs/2026-08-04_22-00_scheduler_4robots.log` (여유 구간)
+
+### 관련 이슈
+- 없음
