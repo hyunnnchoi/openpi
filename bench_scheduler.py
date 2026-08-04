@@ -214,6 +214,8 @@ def main():
     ap.add_argument("--num-steps", type=int, default=10)
     ap.add_argument("--max-batch", type=int, default=8)
     ap.add_argument("--dry-runs", type=int, default=1, help="untimed passes per policy, to absorb compilation")
+    ap.add_argument("--admit-min", type=int, default=3, help="ring: prefill once this many are waiting")
+    ap.add_argument("--admit-wait-ms", type=float, default=25.0, help="ring: or once the oldest has waited this long")
     ap.add_argument(
         "--policies", nargs="+", default=["serial", "batch", "continuous"], help="serial | batch | continuous"
     )
@@ -364,6 +366,7 @@ def main():
         base = time.perf_counter()
         now_ms = lambda: (time.perf_counter() - base) * 1e3  # noqa: E731
         waiting, inflight = [], []
+        ticks, prefills = [], []
         i = 0
         with torch.no_grad():
             while i < len(pending) or waiting or inflight:
@@ -372,15 +375,26 @@ def main():
                     waiting.append(pending[i])
                     i += 1
 
-                # Admit whatever is waiting, prefilled as one batch.
-                if waiting and len(inflight) < args.max_batch:
+                # Admit in groups rather than one at a time. Admitting on arrival looks
+                # right -- the request starts immediately -- but arrivals are ~42 ms
+                # apart while a tick is ~8 ms, so each robot ends up prefilled alone at
+                # B=1 and every one of those calls stalls the ring. Measured: 48 prefills
+                # at 32.3 ms each, against 27 ms per robot when batched. Wait for a few
+                # to gather, or for the oldest to have waited long enough that holding it
+                # costs more than the batching saves.
+                oldest_wait = (t - waiting[0].arrival_ms) if waiting else 0.0
+                ready = waiting and (len(waiting) >= args.admit_min or oldest_wait >= args.admit_wait_ms)
+                if ready and len(inflight) < args.max_batch:
                     group = waiting[: args.max_batch - len(inflight)]
                     del waiting[: len(group)]
                     obs = stack_observations([robot_inputs[r.robot] for r in group], device)
+                    t_pf = now_ms()
                     torch.compiler.cudagraph_mark_step_begin()
                     kv, mask, state = prefill_fn(model, obs)
                     kv, mask, state = own_cache(kv), mask.clone(), state.clone()
                     rows = cache_rows(kv)
+                    torch.cuda.synchronize()
+                    prefills.append((len(group), now_ms() - t_pf))
                     for j, r in enumerate(group):
                         r.start_ms = now_ms()
                         r.kv = rows[j]
@@ -398,6 +412,7 @@ def main():
 
                 # One Euler step for every in-flight request, each at its own time.
                 dt = -1.0 / args.num_steps
+                t_merge = now_ms()
                 kv = merge_caches([r.kv for r in inflight])
                 mask = torch.cat([r.mask for r in inflight], dim=0)
                 state = torch.cat([r.state for r in inflight], dim=0)
@@ -405,11 +420,14 @@ def main():
                 times = torch.tensor(
                     [1.0 + dt * r.steps_done for r in inflight], dtype=torch.float32, device=device
                 )
+                torch.cuda.synchronize()
+                t_step = now_ms()
                 torch.compiler.cudagraph_mark_step_begin()
                 v_t = denoise_step(state, mask, kv, x_t, times)
                 x_next = x_t + dt * v_t
                 torch.cuda.synchronize()
                 t_done = now_ms()
+                ticks.append((len(inflight), t_step - t_merge, t_done - t_step))
 
                 still = []
                 for j, r in enumerate(inflight):
@@ -421,6 +439,26 @@ def main():
                     else:
                         still.append(r)
                 inflight = still
+        if ticks:
+            import statistics as _st
+
+            by_n = {}
+            for n, m, g in ticks:
+                by_n.setdefault(n, []).append((m, g))
+            print("    [ring] per-tick cost, by in-flight count:", flush=True)
+            for n in sorted(by_n):
+                ms = [m for m, _ in by_n[n]]
+                gs = [g for _, g in by_n[n]]
+                print(
+                    f"      n={n:>2}  ticks={len(ms):>4}  merge {_st.mean(ms):>6.1f} ms  "
+                    f"denoise {_st.mean(gs):>6.1f} ms",
+                    flush=True,
+                )
+            pn = {}
+            for n, d in prefills:
+                pn.setdefault(n, []).append(d)
+            for n in sorted(pn):
+                print(f"      prefill B={n:>2}  n={len(pn[n]):>3}  {_st.mean(pn[n]):>7.1f} ms", flush=True)
         return reqs, now_ms()
 
     runners = {"serial": run_serial, "batch": run_batch, "continuous": run_continuous}

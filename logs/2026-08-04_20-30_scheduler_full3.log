@@ -1,0 +1,63 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+GPU free at start    : 78.8 / 79.3 GiB
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+model load           : 88.9 s
+robots               : 6, phases [0.0, 40.0, 85.0, 120.0, 190.0, 230.0]
+compile mode         : max-autotune
+warming compiled shapes (record pass included; sizes 1-2 are the slow ones)...
+  B=1 warm in 53.6 s
+  B=2 warm in 105.0 s
+  B=3 warm in 10.2 s
+  B=4 warm in 10.5 s
+  B=5 warm in 10.8 s
+  B=6 warm in 10.9 s
+  B=7 warm in 11.2 s
+  B=8 warm in 11.4 s
+warm.
+
+policy              done thru r/s   e2e mean   e2e p50   e2e p99   e2e max     miss
+  serial: dry run (compiling) 2.9 s
+serial           48/48      16.75      474.6     488.5     886.0     886.0    75.0%
+    [batch] size= 1  obs     8.0 ms  gpu     55.2 ms
+    [batch] size= 1  obs     5.1 ms  gpu     55.0 ms
+    [batch] size= 2  obs     5.0 ms  gpu     99.1 ms
+    [batch] size= 1  obs     4.9 ms  gpu     56.2 ms
+    [batch] size= 2  obs     5.0 ms  gpu     98.3 ms
+    [batch] size= 3  obs     5.5 ms  gpu    125.1 ms
+    [batch] size= 3  obs     5.4 ms  gpu    124.2 ms
+    [batch] size= 3  obs     5.2 ms  gpu    125.5 ms
+    [batch] size= 3  obs     5.5 ms  gpu    124.5 ms
+    [batch] size= 3  obs     5.5 ms  gpu    124.3 ms
+    [batch] size= 4  obs     5.6 ms  gpu    163.0 ms
+    [batch] size= 3  obs     5.6 ms  gpu    124.8 ms
+    [batch] size= 4  obs     5.6 ms  gpu    165.1 ms
+    [batch] size= 4  obs     5.7 ms  gpu    163.2 ms
+    [batch] size= 3  obs     5.5 ms  gpu    124.8 ms
+    [batch] size= 4  obs     5.8 ms  gpu    162.9 ms
+    [batch] size= 4  obs     5.7 ms  gpu    163.5 ms
+  batch: dry run (compiling) 2.1 s
+    [batch] size= 1  obs     5.2 ms  gpu     56.7 ms
+    [batch] size= 1  obs     4.8 ms  gpu     54.8 ms
+    [batch] size= 2  obs     4.9 ms  gpu     98.5 ms
+    [batch] size= 1  obs     4.9 ms  gpu     55.7 ms
+    [batch] size= 2  obs     4.9 ms  gpu     98.1 ms
+    [batch] size= 3  obs     5.3 ms  gpu    124.5 ms
+    [batch] size= 3  obs     5.6 ms  gpu    124.4 ms
+    [batch] size= 3  obs     5.6 ms  gpu    125.5 ms
+    [batch] size= 3  obs     5.6 ms  gpu    124.5 ms
+    [batch] size= 3  obs     5.6 ms  gpu    125.0 ms
+    [batch] size= 3  obs     5.4 ms  gpu    125.6 ms
+    [batch] size= 3  obs     5.5 ms  gpu    124.7 ms
+    [batch] size= 4  obs     5.4 ms  gpu    163.8 ms
+    [batch] size= 3  obs     5.7 ms  gpu    125.7 ms
+    [batch] size= 4  obs     5.9 ms  gpu    162.6 ms
+    [batch] size= 4  obs     5.7 ms  gpu    164.1 ms
+    [batch] size= 4  obs     5.9 ms  gpu    163.6 ms
+    [batch] size= 1  obs     5.2 ms  gpu     56.5 ms
+batch            48/48      22.10      200.4     194.3     320.3     320.3    18.8%
+  continuous: dry run (compiling) 2.3 s
+continuous       48/48      20.56      472.3     482.1     608.5     608.5   100.0%
+
+wrote data/bench_scheduler.json
