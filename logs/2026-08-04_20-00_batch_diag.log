@@ -1,0 +1,35 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+GPU free at start    : 78.8 / 79.3 GiB
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+model load           : 85.0 s
+robots               : 6, phases [0.0, 40.0, 85.0, 120.0, 190.0, 230.0]
+compile mode         : max-autotune
+warming compiled shapes (the second batch size is the expensive one)...
+  B=1 warm in 51.8 s
+  B=2 warm in 91.4 s
+  B=3 warm in 0.4 s
+  B=4 warm in 0.4 s
+  B=5 warm in 0.5 s
+  B=6 warm in 0.5 s
+  B=7 warm in 0.6 s
+  B=8 warm in 0.6 s
+warm.
+
+policy              done thru r/s   e2e mean   e2e p50   e2e p99   e2e max     miss
+    [batch] size= 1  obs     5.1 ms  gpu   8068.6 ms
+    [batch] size= 8  obs     7.2 ms  gpu   8421.7 ms
+    [batch] size= 8  obs     7.4 ms  gpu    278.5 ms
+    [batch] size= 1  obs     5.8 ms  gpu     56.0 ms
+  batch: dry run (compiling) 16.9 s
+    [batch] size= 1  obs     4.8 ms  gpu     54.2 ms
+    [batch] size= 1  obs     5.3 ms  gpu     54.0 ms
+    [batch] size= 1  obs     4.8 ms  gpu     54.7 ms
+    [batch] size= 1  obs     4.8 ms  gpu     54.6 ms
+    [batch] size= 2  obs     4.9 ms  gpu   8270.5 ms
+    [batch] size= 8  obs     7.3 ms  gpu    277.7 ms
+    [batch] size= 4  obs     7.5 ms  gpu   8354.0 ms
+batch            18/18       1.05     8341.1    8357.7   16574.2   16574.2    77.8%
+
+wrote data/bench_scheduler.json

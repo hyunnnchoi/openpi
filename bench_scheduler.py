@@ -47,6 +47,10 @@ OUT = pathlib.Path("data/bench_scheduler.json")
 # the batching policies.
 DEFAULT_PHASES = [0.0, 40.0, 85.0, 120.0, 190.0, 230.0]
 
+# Calls per shape during warmup. Two would be enough to get past cudagraph trees'
+# record pass; three leaves a replay in the warmup as proof it took.
+WARM_CALLS = 3
+
 
 class Request:
     __slots__ = ("robot", "cycle", "arrival_ms", "start_ms", "done_ms", "steps_done", "kv", "mask", "state", "x_t")
@@ -255,12 +259,40 @@ def main():
         prefill_fn = torch.compile(prefill, mode=compile_mode)
     print(f"compile mode         : {compile_mode}", flush=True)
 
-    # No separate shape warmup: matching every shape a policy will produce turned out
-    # to be guesswork (the denoise ring's KV is assembled from single-row caches, which
-    # guards differently from a directly-prefilled batch), and a missed shape compiles
-    # *inside* the measured window -- a 240 s "latency" in the first attempt. Instead
-    # each policy runs its whole trace once and that result is thrown away, so the
-    # measured pass exercises only code that is already compiled.
+    # Warm every batch size each policy can produce, built the way the run builds it,
+    # and call each shape more than once.
+    #
+    # Three earlier attempts got this wrong and every one of them showed up as an absurd
+    # latency rather than an error. Matching shapes by hand missed the ring's KV, which
+    # is assembled from single-row caches and guards differently from a directly
+    # prefilled batch. Relying on dry runs alone missed sizes that pass simply did not
+    # form, since batch composition depends on timing. And calling each shape once was
+    # still not enough: inductor's cudagraph trees run the first invocation of a shape
+    # eagerly and record the graph on the *second*, so a single warmup call left the
+    # ~8.3 s recording to happen inside the measured window -- visible as a batch of 2
+    # taking 8270 ms with no AUTOTUNE line anywhere near it.
+    print("warming compiled shapes (record pass included; sizes 1-2 are the slow ones)...", flush=True)
+    with torch.no_grad():
+        for b in range(1, args.max_batch + 1):
+            t_w = time.perf_counter()
+            obs_b = stack_observations((robot_inputs * b)[:b], device)
+            x = model.sample_noise((b, model.config.action_horizon, model.config.action_dim), device)
+            t = torch.tensor([1.0 - 0.1 * i for i in range(b)], dtype=torch.float32, device=device)
+            for _ in range(WARM_CALLS):
+                torch.compiler.cudagraph_mark_step_begin()
+                sample_actions(device, obs_b, num_steps=args.num_steps)
+
+                torch.compiler.cudagraph_mark_step_begin()
+                kv, mask, state = prefill_fn(model, obs_b)
+                kv, mask, state = own_cache(kv), mask.clone(), state.clone()
+
+                # Exactly the ring's path: split to per-request caches, then re-merge.
+                merged = merge_caches(cache_rows(kv))
+                torch.compiler.cudagraph_mark_step_begin()
+                denoise_step(state, mask, merged, x, t)
+            torch.cuda.synchronize()
+            print(f"  B={b} warm in {time.perf_counter() - t_w:.1f} s", flush=True)
+    print("warm.", flush=True)
 
     results = []
 
@@ -296,6 +328,7 @@ def main():
         base = time.perf_counter()
         now_ms = lambda: (time.perf_counter() - base) * 1e3  # noqa: E731
         queue = []
+        service = []
         i = 0
         with torch.no_grad():
             while i < len(pending) or queue:
@@ -310,13 +343,18 @@ def main():
                 del queue[: len(group)]
                 for r in group:
                     r.start_ms = now_ms()
+                t_obs = now_ms()
                 obs = stack_observations([robot_inputs[r.robot] for r in group], device)
+                t_gpu = now_ms()
                 torch.compiler.cudagraph_mark_step_begin()
                 sample_actions(device, obs, num_steps=args.num_steps)
                 torch.cuda.synchronize()
                 done = now_ms()
+                service.append((len(group), t_gpu - t_obs, done - t_gpu))
                 for r in group:
                     r.done_ms = done
+        for n, obs_ms, gpu_ms in service:
+            print(f"    [batch] size={n:>2}  obs {obs_ms:>7.1f} ms  gpu {gpu_ms:>8.1f} ms", flush=True)
         return reqs, now_ms()
 
     # ---- policy: continuous batching (denoise ring) ---------------------

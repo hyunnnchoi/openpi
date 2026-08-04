@@ -3,16 +3,26 @@
 GPU free at start    : 78.8 / 79.3 GiB
 /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
   import pynvml  # type: ignore[import]
-model load           : 80.4 s
+model load           : 85.1 s
 robots               : 6, phases [0.0, 40.0, 85.0, 120.0, 190.0, 230.0]
 compile mode         : max-autotune
+warming compiled shapes (the second batch size is the expensive one)...
+  B=1 warm in 58.0 s
+  B=2 warm in 106.1 s
+  B=3 warm in 0.4 s
+  B=4 warm in 0.4 s
+  B=5 warm in 0.5 s
+  B=6 warm in 0.5 s
+  B=7 warm in 0.6 s
+  B=8 warm in 0.6 s
+warm.
 
 policy              done thru r/s   e2e mean   e2e p50   e2e p99   e2e max     miss
-  serial: dry run (compiling) 36.7 s
-serial           48/48      16.85      464.8     478.1     869.1     869.1    75.0%
-  batch: dry run (compiling) 65.8 s
-batch            48/48       5.63     1573.3     489.7    6798.1    6798.1    85.4%
-  continuous: dry run (compiling) 51.7 s
-continuous       48/48      14.90      914.6     871.4    1490.3    1490.3   100.0%
+  serial: dry run (compiling) 10.9 s
+serial           48/48      16.72      478.5     490.8     891.1     891.1    75.0%
+  batch: dry run (compiling) 18.1 s
+batch            48/48       2.62     8181.5    8373.0   16577.0   16577.0    85.4%
+  continuous: dry run (compiling) 5.3 s
+continuous       48/48      11.04     2003.3    1979.7    2596.4    2596.4   100.0%
 
 wrote data/bench_scheduler.json
