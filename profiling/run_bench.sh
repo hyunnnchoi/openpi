@@ -32,6 +32,12 @@ PORT=8000
 OUTDIR=data/profiling
 USE_NSYS=1
 GRAPH_TRACE=node
+# cudnn tracing is deliberately absent. On the A100 box (nsys 2025.3.1, torch 2.7.1,
+# triton 3.3.1) adding cudnn makes Triton's own driver handle come up uninitialized,
+# and every inductor compile dies with "Triton Error [CUDA]: initialization error"
+# before the server ever listens. cuda,nvtx,cublas reproduces on its own machine-wide,
+# and the kernel breakdown comes from the cuda trace regardless.
+TRACE=cuda,nvtx,cublas
 CKPT="$HOME/.cache/openpi/openpi-assets/checkpoints/pi05_libero_pytorch"
 
 while [[ $# -gt 0 ]]; do
@@ -69,7 +75,7 @@ for N in $CLIENTS; do
   if [[ "$USE_NSYS" == "1" ]]; then
     nsys profile \
       --output "$OUTDIR/$TAG" --force-overwrite true \
-      --trace cuda,nvtx,cublas,cudnn \
+      --trace "$TRACE" \
       --cuda-graph-trace "$GRAPH_TRACE" \
       --capture-range cudaProfilerApi --capture-range-end stop \
       --cuda-memory-usage true \

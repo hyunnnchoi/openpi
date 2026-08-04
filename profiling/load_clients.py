@@ -57,7 +57,14 @@ def connect(uri: str, timeout_s: float = 120.0):
     deadline = time.monotonic() + timeout_s
     while True:
         try:
-            conn = websockets.sync.client.connect(uri, compression=None, max_size=None, open_timeout=30)
+            # ping_interval=None: the server calls policy.infer synchronously inside the
+            # asyncio handler, so at high client counts the event loop stops answering
+            # keepalive pings for as long as the queue takes to drain and the default
+            # 20 s timeout kills the connection mid-run. That blocking is the thing being
+            # measured, so the harness must not treat it as a dead peer.
+            conn = websockets.sync.client.connect(
+                uri, compression=None, max_size=None, open_timeout=30, ping_interval=None
+            )
             msgpack_numpy.unpackb(conn.recv())  # server metadata handshake
             return conn
         except (ConnectionRefusedError, OSError):
