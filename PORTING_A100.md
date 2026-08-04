@@ -14,6 +14,27 @@
 
 ---
 
+## 시작 — A100 박스에서 리포지토리 가져오기
+
+```bash
+git clone --recurse-submodules -b dgx-spark-profiling \
+    https://github.com/hyunnnchoi/openpi.git
+cd openpi
+git remote add upstream https://github.com/Physical-Intelligence/openpi.git
+```
+
+**`--recurse-submodules`는 필수입니다.** LIBERO가 `third_party/libero` 서브모듈로
+들어오는데, 이게 없으면 3장의 클라이언트 셋업이 통째로 실패합니다. 이미 클론했다면:
+
+```bash
+git submodule update --init --recursive
+```
+
+> 브랜치가 `dgx-spark-profiling`인 이유: 포크의 `main`은 업스트림과 동일하게 남겨둬서
+> 나중에 `git fetch upstream && git merge upstream/main`이 깔끔하게 되도록 했습니다.
+
+---
+
 ## 0. 옮겨간 박스에서 가장 먼저 확인할 것
 
 ```bash
