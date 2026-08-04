@@ -1,0 +1,5 @@
+STEADY env.step mean ms: 51.00  (GB10 baseline 9.8)
+  File "/home/work/hyunmokchoi/openpi/examples/libero/.venv/lib/python3.11/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+  File "/home/work/hyunmokchoi/openpi/examples/libero/.venv/lib/python3.11/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>

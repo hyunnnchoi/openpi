@@ -1,0 +1,7 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+torch 2.7.1+cu126 cuda 12.6 avail True n 2
+  gpu0: NVIDIA A100 80GB PCIe sm_80 SMs=108 mem=79GiB
+  gpu1: NVIDIA A100 80GB PCIe sm_80 SMs=108 mem=79GiB
+WARNING:2026-08-04 12:12:23,293:jax._src.xla_bridge:967: An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+jax 0.5.3 [CpuDevice(id=0)]

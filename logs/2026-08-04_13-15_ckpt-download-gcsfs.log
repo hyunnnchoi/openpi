@@ -1,0 +1,71 @@
+16 files, 11.58 GiB
+  1/16    0.00/11.58 GiB     0.1 MiB/s
+  2/16    0.00/11.58 GiB     0.1 MiB/s
+  3/16    0.00/11.58 GiB     0.1 MiB/s
+  4/16    0.00/11.58 GiB     0.1 MiB/s
+  5/16    0.00/11.58 GiB     0.1 MiB/s
+  6/16    0.00/11.58 GiB     0.1 MiB/s
+  7/16    0.00/11.58 GiB     0.2 MiB/s
+  8/16    0.00/11.58 GiB     0.2 MiB/s
+  9/16    0.00/11.58 GiB     0.2 MiB/s
+  10/16    0.00/11.58 GiB     1.1 MiB/s
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_proto.py", line 143, in connection_lost
+    uncompleted = self._parser.feed_eof()
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "aiohttp/_http_parser.pyx", line 594, in aiohttp._http_parser.HttpParser.feed_eof
+aiohttp.http_exceptions.ContentLengthError: 400, message:
+  Not enough data to satisfy content length header (received 47896 of 8388608 bytes).
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/tmp/claude-1100/-home-work-hyunmokchoi/690a691a-5592-4959-b4ff-c7abb9aa8fd1/scratchpad/gcs_pull2.py", line 66, in <module>
+    main()
+  File "/tmp/claude-1100/-home-work-hyunmokchoi/690a691a-5592-4959-b4ff-c7abb9aa8fd1/scratchpad/gcs_pull2.py", line 50, in main
+    done += fut.result()
+            ^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-1100/-home-work-hyunmokchoi/690a691a-5592-4959-b4ff-c7abb9aa8fd1/scratchpad/gcs_pull2.py", line 42, in fetch
+    shutil.copyfileobj(src, dst, length=1 << 23)
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/shutil.py", line 197, in copyfileobj
+    buf = fsrc_read(length)
+          ^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/spec.py", line 2122, in read
+    out = self.cache._fetch(self.loc, self.loc + length)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/caching.py", line 279, in _fetch
+    self.cache = self.fetcher(start, end)  # new block replaces old
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1560, in _fetch_range
+    _, data = self.gcsfs.call("GET", self.details["mediaLink"], headers=head)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 118, in wrapper
+    return sync(self.loop, func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 103, in sync
+    raise return_result
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 56, in _runner
+    result[0] = await coro
+                ^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 537, in _call
+    contents = await r.read()
+               ^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 715, in read
+    self._body = await self.content.read()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/streams.py", line 437, in read
+    block = await self.readany()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/streams.py", line 460, in readany
+    await self._wait("readany")
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/streams.py", line 365, in _wait
+    await waiter
+aiohttp.client_exceptions.ClientPayloadError: Response payload is not completed: <ContentLengthError: 400, message='Not enough data to satisfy content length header (received 47896 of 8388608 bytes).'>. ConnectionResetError(104, 'Connection reset by peer')

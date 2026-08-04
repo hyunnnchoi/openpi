@@ -1,0 +1,23 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Converting PI0 checkpoint from /home/work/.cache/openpi/openpi-assets/checkpoints/pi05_libero to /home/work/.cache/openpi/openpi-assets/checkpoints/pi05_libero_pytorch
+Model config: Pi0Config(action_dim=32, action_horizon=10, max_token_len=200, dtype='bfloat16', paligemma_variant='gemma_2b', action_expert_variant='gemma_300m', pi05=True, discrete_state_input=False, pytorch_compile_mode='max-autotune')
+WARNING:2026-08-04 13:30:32,131:jax._src.xla_bridge:967: An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+WARNING:jax._src.xla_bridge:An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Model conversion completed successfully!
+Model saved to /home/work/.cache/openpi/openpi-assets/checkpoints/pi05_libero_pytorch
+n <module>
+    tyro.cli(main)
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/tyro/_cli.py", line 322, in cli
+    out = run_with_args_from_cli()
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/examples/convert_jax_model_to_pytorch.py", line 583, in main
+    convert_pi0_checkpoint(checkpoint_dir, precision, output_path, model_config)
+  File "/home/work/hyunmokchoi/openpi/examples/convert_jax_model_to_pytorch.py", line 514, in convert_pi0_checkpoint
+    pi0_model = openpi.models_pytorch.pi0_pytorch.PI0Pytorch(model_config)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/src/openpi/models_pytorch/pi0_pytorch.py", line 125, in __init__
+    raise ValueError(msg) from None
+ValueError: transformers_replace is not installed correctly. Please install it with `uv pip install transformers==4.53.2` and `cp -r ./src/openpi/models_pytorch/transformers_replace/* .venv/lib/python3.11/site-packages/transformers/`.

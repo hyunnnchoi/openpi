@@ -1,0 +1,13 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+
+policy.infer wall (sync'd)       mean   62.35 ms   p50   62.17   max   64.21
+  infer_ms as policy reports     mean   55.73 ms   p50   55.57   max   57.63
+  input transform (CPU)          mean    0.30 ms   p50    0.30   max    0.35
+  host->device + wrap            mean    5.87 ms   p50    5.81   max    6.21
+  sample_actions + sync (GPU)    mean   55.74 ms   p50   55.79   max   56.84
+  device->host + out transform   mean    0.35 ms   p50    0.35   max    0.40
+
+sum of stages: 62.26 ms

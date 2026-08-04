@@ -1,0 +1,17 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Traceback (most recent call last):
+  File "/tmp/claude-1100/-home-work-hyunmokchoi/690a691a-5592-4959-b4ff-c7abb9aa8fd1/scratchpad/spike_merge_kv.py", line 139, in <module>
+    main()
+  File "/tmp/claude-1100/-home-work-hyunmokchoi/690a691a-5592-4959-b4ff-c7abb9aa8fd1/scratchpad/spike_merge_kv.py", line 95, in main
+    obs_a = obs_for(1, "pick up the black bowl")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-1100/-home-work-hyunmokchoi/690a691a-5592-4959-b4ff-c7abb9aa8fd1/scratchpad/spike_merge_kv.py", line 92, in obs_for
+    batched = {k: (torch.as_tensor(np.asarray(v))[None].to(device) if not isinstance(v, str) else v) for k, v in inputs.items()}
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-1100/-home-work-hyunmokchoi/690a691a-5592-4959-b4ff-c7abb9aa8fd1/scratchpad/spike_merge_kv.py", line 92, in <dictcomp>
+    batched = {k: (torch.as_tensor(np.asarray(v))[None].to(device) if not isinstance(v, str) else v) for k, v in inputs.items()}
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: can't convert np.ndarray of type numpy.object_. The only supported types are: float64, float32, float16, complex64, complex128, int64, int32, int16, int8, uint64, uint32, uint16, uint8, and bool.

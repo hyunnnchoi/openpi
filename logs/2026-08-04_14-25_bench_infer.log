@@ -1,0 +1,24 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+model load           :  137.07 s
+GPU mem for weights  :    7.00 GiB
+action_horizon       : 10
+action_dim           : 32
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/bench_infer.py", line 71, in <module>
+    main()
+  File "/home/work/hyunmokchoi/openpi/bench_infer.py", line 43, in main
+    policy.infer(example)
+  File "/home/work/hyunmokchoi/openpi/src/openpi/policies/policy.py", line 90, in infer
+    observation = _model.Observation.from_dict(inputs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/src/openpi/models/model.py", line 120, in from_dict
+    data["image"][key] = data["image"][key].to(torch.float32).permute(0, 3, 1, 2) / 255.0 * 2.0 - 1.0
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

@@ -1,0 +1,74 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+GPU free at start    : 78.8 / 79.3 GiB
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+model load           : 86.4 s
+robots               : 3, phases [0.0, 40.0, 85.0]
+compile mode         : max-autotune
+warming compiled shapes (first two batch sizes are slow)...
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/bench_scheduler.py", line 414, in <module>
+    main()
+  File "/home/work/hyunmokchoi/openpi/bench_scheduler.py", line 249, in main
+    denoise_step(state, mask, kv, x, t)
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 655, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/src/openpi/models_pytorch/pi0_pytorch.py", line 422, in denoise_step
+    def denoise_step(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 838, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_functorch/aot_autograd.py", line 1209, in forward
+    return compiled_fn(full_args)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 328, in runtime_wrapper
+    all_outs = call_func_at_runtime_with_args(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_functorch/_aot_autograd/utils.py", line 126, in call_func_at_runtime_with_args
+    out = normalize_as_list(f(args))
+                            ^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 689, in inner_fn
+    outs = compiled_fn(args)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 495, in wrapper
+    return compiled_fn(runtime_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_inductor/output_code.py", line 460, in __call__
+    return self.current_callable(inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_inductor/compile_fx.py", line 1372, in run
+    return compiled_fn(new_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_inductor/cudagraph_trees.py", line 387, in deferred_cudagraphify
+    fn, out = cudagraphify(model, inputs, new_static_input_idxs, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_inductor/cudagraph_trees.py", line 448, in cudagraphify
+    return manager.add_function(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_inductor/cudagraph_trees.py", line 2308, in add_function
+    return fn, fn(inputs)
+               ^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_inductor/cudagraph_trees.py", line 1997, in run
+    out = self._run(new_inputs, function_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_inductor/cudagraph_trees.py", line 2104, in _run
+    out = self.run_eager(new_inputs, function_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_inductor/cudagraph_trees.py", line 2269, in run_eager
+    return node.run(new_inputs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_inductor/cudagraph_trees.py", line 653, in run
+    non_cudagraph_inps_storages = get_non_cudagraph_inps()
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_inductor/cudagraph_trees.py", line 645, in get_non_cudagraph_inps
+    non_cudagraph_inps = [
+                         ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/_inductor/cudagraph_trees.py", line 649, in <listcomp>
+    and t.untyped_storage().data_ptr() not in existing_path_data_ptrs
+        ^^^^^^^^^^^^^^^^^^^
+RuntimeError: Error: accessing tensor output of CUDAGraphs that has been overwritten by a subsequent run. Stack trace: File "/home/work/hyunmokchoi/openpi/bench_scheduler.py", line 144, in torch_dynamo_resume_in_prefill_at_141
+    prefix_embs, prefix_pad_masks, prefix_att_masks = model.embed_prefix(images, img_masks, lang_tokens, lang_masks)
+  File "/home/work/hyunmokchoi/openpi/src/openpi/models_pytorch/pi0_pytorch.py", line 229, in embed_prefix
+    pad_masks = torch.cat(pad_masks, dim=1). To prevent overwriting, clone the tensor outside of torch.compile() or call torch.compiler.cudagraph_mark_step_begin() before each model invocation.

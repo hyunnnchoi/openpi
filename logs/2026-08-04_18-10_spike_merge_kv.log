@@ -1,0 +1,13 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+prefill done.
+  cache type: DynamicCache
+  layers: 18 | key[0] shape: (1, 1, 968, 256)
+
+merged vs separate, max abs diff: A 6.442e-03  B 1.830e-02  (|v| ~ 3.724)
+relative: A 1.730e-03  B 4.913e-03
+sanity, A vs B differ by: 9.404
+
+RESULT: MERGE IS VALID

@@ -1,0 +1,18 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+model load           :   90.34 s
+GPU mem for weights  :    7.00 GiB
+action_horizon       : 10
+action_dim           : 32
+
+actions shape        : (10, 7)
+latency mean         :   59.42 ms
+latency p50          :   59.49 ms
+latency p99          :   60.45 ms
+latency min / max    :   58.16 /   60.45 ms
+
+-> one chunk = 10 actions, so 5.9 ms of compute per action step
+-> sustainable control rate if replanning every chunk: 168.3 Hz
+GPU mem in use total :    7.74 / 79.3 GiB

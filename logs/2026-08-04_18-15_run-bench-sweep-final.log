@@ -1,0 +1,17 @@
+############################################################
+# c1 : 1 client(s), 30 requests each, mode=rate
+############################################################
+[bench] server ready
+[load] 1 clients, 30 req each, mode=rate
+[load] control period 250 ms/robot -> offered 4.0 req/s
+[load] ctl reset_peak: {'ok': True, 'cmd': 'reset_peak', 'profiling': False, 'requests': 0, 'peak_inflight': 0, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.970963478088379, 't_server': 2827920.751716535}
+[load] ctl profile_start: {'ok': True, 'cmd': 'profile_start', 'profiling': True, 'requests': 2, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2827922.467202533}
+  client 0: n=30 e2e mean    80.1 ms p99    85.3 ms   4.09 Hz  missed 0/30
+[load] ctl profile_stop: {'ok': True, 'cmd': 'profile_stop', 'profiling': False, 'requests': 32, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2827935.435811324}
+[load] 30 requests in 7.4 s -> 4.07 req/s, e2e mean 80.1 ms, p99 85.3 ms, deadline misses 0/30 (0%)
+[bench] shutdown ack: {'ok': True, 'cmd': 'shutdown', 'profiling': False, 'requests': 32, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2827935.74907855}
+[bench] server exited
+[bench] nsys stats...
+############################################################
+# c2 : 2 client(s), 30 requests each, mode=rate
+############################################################

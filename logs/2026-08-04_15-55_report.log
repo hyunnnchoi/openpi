@@ -1,0 +1,60 @@
+per-client:
+   cid     n   mean ms    p99 ms    max ms      Hz  missed
+     0    30     305.8     325.9     325.9    3.23      28
+     1    30     309.1     323.5     323.5    3.20      29
+     2    30     299.8     324.4     324.4    3.26      27
+     3    30     314.5     324.0     324.0    3.18      30
+
+GPU during window (NVML sampled at 10 Hz):
+  SM utilization      : 59% mean, 64% peak
+  power               : 210 W mean, 361 W peak
+  memory in use       : 7.8 GiB mean, 7.8 GiB peak
+
+model load 80.1 s, weights 7.00 GiB
+first inference (torch.compile) 38606 ms, warm 1558.8 ms
+
+nsys NVTX ranges (GPU-side, projected):
+  range                                      inst    total ms    avg ms
+  :sample_actions                             120      8323.8     69.37
+  :infer c0                                    30      2345.6     78.19
+  :infer c2                                    30      2344.2     78.14
+  :infer c1                                    30      2343.0     78.10
+  :infer c3                                    30      2334.1     77.80
+  :input_transform                            120        44.2      0.37
+  :output_transform                           120        17.4      0.14
+  :unpack                                     121        11.3      0.09
+  :pack                                       120         3.6      0.03
+
+nsys CUDA kernels: 564360 launches, 78 distinct, 5884 ms GPU time
+  kernel                                                                        ms      %   calls
+  ampere_bf16_s16816gemm_bf16_128x256_ldg8_f2f_stages_64x3_tn               1122.7   19.1    4080
+  ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_64x3_tn                585.7   10.0    2040
+  ampere_bf16_s16816gemm_bf16_128x128_ldg8_f2f_stages_64x3_tn                370.8    6.3   19440
+  triton_per_fused_addmm_10                                                  327.7    5.6    1200
+  triton_tem_fused_mm_12                                                     314.2    5.3   45240
+  triton_tem_fused_addmm_2                                                   283.3    4.8   29160
+  triton_tem_fused_clone_mm_21                                               218.7    3.7   21600
+  void cutlass::Kernel2<cutlass_80_tensorop_s16816gemm_bf16_64x64_64x6_t     218.7    3.7   21600
+  triton_tem_fused_gelu_mm_mul_24                                            202.3    3.4   21600
+  triton_tem_fused_mm_23                                                     175.8    3.0   21600
+
+nsys CUDA API (host time):
+  cudaStreamSynchronize                        5652.4 ms      2640 calls
+  cudaGraphLaunch_v10000                       1483.6 ms      1440 calls
+  cudaMemcpyAsync                                79.8 ms      3600 calls
+  cudaLaunchKernel                               27.5 ms      1680 calls
+  cudaMemGetInfo                                  7.4 ms        93 calls
+  cudaStreamIsCapturing_v10000                    5.6 ms      1560 calls
+  cudaDeviceSynchronize                           3.6 ms       121 calls
+  cuProfilerStart                                 0.0 ms         1 calls
+
+============================================================================================
+  SWEEP
+============================================================================================
+run           clients  thru r/s  e2e mean   e2e p99  queue p50  infer p50  busy %  miss %
+-----------------------------------------------------------------------------------------
+c1                  1      4.07      75.4      81.6        0.8       73.1    30.4     0.0
+c2                  2      8.04     115.3     164.9       71.5       76.5    61.3     0.0
+c4                  4     12.63     307.3     324.4      234.3       77.7    99.2    95.0
+
+wrote data/profiling/report.json

@@ -1,0 +1,39 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Traceback (most recent call last):
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/shutil.py", line 853, in move
+    os.rename(src, real_dst)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/work/.cache/openpi/big_vision/paligemma_tokenizer.partial' -> '/home/work/.cache/openpi/big_vision/paligemma_tokenizer.model'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/bench_infer.py", line 71, in <module>
+    main()
+  File "/home/work/hyunmokchoi/openpi/bench_infer.py", line 31, in main
+    policy = _policy_config.create_trained_policy(train_config, CKPT)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/src/openpi/policies/policy_config.py", line 58, in create_trained_policy
+    data_config = train_config.data.create(train_config.assets_dirs, train_config.model)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/src/openpi/training/config.py", line 347, in create
+    model_transforms = ModelTransformFactory()(model_config)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/src/openpi/training/config.py", line 133, in __call__
+    _tokenizer.PaligemmaTokenizer(model_config.max_token_len),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/src/openpi/models/tokenizer.py", line 18, in __init__
+    path = download.maybe_download("gs://big_vision/paligemma_tokenizer.model", gs={"token": "anon"})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/src/openpi/shared/download.py", line 95, in maybe_download
+    shutil.move(scratch_path, local_path)
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/shutil.py", line 873, in move
+    copy_function(src, real_dst)
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/shutil.py", line 448, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/work/.cache/openpi/big_vision/paligemma_tokenizer.partial'

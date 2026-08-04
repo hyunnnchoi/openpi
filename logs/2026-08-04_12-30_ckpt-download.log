@@ -1,0 +1,587 @@
+gsutil not found, falling back to gcsfs. This may fail if GCP credentials are not configured correctly.
+downloaded to: /home/work/.cache/openpi/openpi-assets/checkpoints/pi05_libero
+Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-13' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-14' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-16' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-18' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-19' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-22' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-23' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-25' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-26' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-27' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-28' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-29' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-30' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'
+Task exception was never retrieved
+future: <Task finished name='Task-31' coro=<_run_coros_in_chunks.<locals>._run_coro() done, defined at /home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py:242> exception=TypeError("int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'")>
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 244, in _run_coro
+    return await asyncio.wait_for(coro, timeout=timeout), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/tasks.py", line 452, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/fsspec/callbacks.py", line 81, in func
+    return await fn(path1, path2, callback=child, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1215, in _get_file
+    async with self.session.get(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1693, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 780, in _request
+    req = self._request_class(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 895, in __init__
+    url = url.extend_query(params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_url.py", line 1312, in extend_query
+    if not (new_query := get_str_query(*args, **kwargs)):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 108, in get_str_query
+    return get_str_query_from_sequence_iterable(query.items())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 56, in get_str_query_from_sequence_iterable
+    pairs = [
+            ^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 57, in <listcomp>
+    f"{quoter(k)}={quoter(v if type(v) is str else query_var(v))}"
+                                                   ^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/yarl/_query.py", line 38, in query_var
+    return str(int(v))
+               ^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoOpCallback'

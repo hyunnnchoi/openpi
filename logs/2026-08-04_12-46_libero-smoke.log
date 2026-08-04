@@ -1,0 +1,6 @@
+  File "/home/work/hyunmokchoi/openpi/examples/libero/.venv/lib/python3.11/site-packages/robosuite/controllers/base_controller.py", line 90, in __init__
+    self.update()
+  File "/home/work/hyunmokchoi/openpi/examples/libero/.venv/lib/python3.11/site-packages/robosuite/controllers/base_controller.py", line 156, in update
+    mujoco.mj_fullM(self.sim.model._model, mass_matrix, self.sim.data.qM)
+                                                        ^^^^^^^^^^^^^^^^
+AttributeError: 'MjData' object has no attribute 'qM'. Did you mean: 'M'?

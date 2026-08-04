@@ -1,0 +1,74 @@
+############################################################
+# c1 : 1 client(s), 30 requests each, mode=rate
+############################################################
+[bench] server ready
+[load] 1 clients, 30 req each, mode=rate
+[load] control period 250 ms/robot -> offered 4.0 req/s
+[load] ctl reset_peak: {'ok': True, 'cmd': 'reset_peak', 'profiling': False, 'requests': 0, 'peak_inflight': 0, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.970963478088379, 't_server': 2830122.229091678}
+[load] ctl profile_start: {'ok': True, 'cmd': 'profile_start', 'profiling': True, 'requests': 2, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2830123.873219244}
+  client 0: n=30 e2e mean    75.4 ms p99    81.6 ms   4.09 Hz  missed 0/30
+[load] ctl profile_stop: {'ok': True, 'cmd': 'profile_stop', 'profiling': False, 'requests': 32, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2830136.471415034}
+[load] 30 requests in 7.4 s -> 4.07 req/s, e2e mean 75.4 ms, p99 81.6 ms, deadline misses 0/30 (0%)
+[bench] shutdown ack: {'ok': True, 'cmd': 'shutdown', 'profiling': False, 'requests': 32, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2830136.769764351}
+[bench] server exited
+[bench] nsys stats...
+############################################################
+# c2 : 2 client(s), 30 requests each, mode=rate
+############################################################
+[bench] server ready
+[load] 2 clients, 30 req each, mode=rate
+[load] control period 250 ms/robot -> offered 8.0 req/s
+[load] ctl reset_peak: {'ok': True, 'cmd': 'reset_peak', 'profiling': False, 'requests': 0, 'peak_inflight': 0, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.970963478088379, 't_server': 2830281.967299541}
+[load] ctl profile_start: {'ok': True, 'cmd': 'profile_start', 'profiling': True, 'requests': 4, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2830283.800036576}
+  client 0: n=30 e2e mean    87.7 ms p99   162.7 ms   4.09 Hz  missed 0/30
+  client 1: n=30 e2e mean   142.8 ms p99   164.9 ms   4.06 Hz  missed 0/30
+[load] ctl profile_stop: {'ok': True, 'cmd': 'profile_stop', 'profiling': False, 'requests': 64, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2830299.229260994}
+[load] 60 requests in 7.5 s -> 8.04 req/s, e2e mean 115.3 ms, p99 164.9 ms, deadline misses 0/60 (0%)
+[bench] shutdown ack: {'ok': True, 'cmd': 'shutdown', 'profiling': False, 'requests': 64, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2830299.545380208}
+[bench] server exited
+[bench] nsys stats...
+############################################################
+# c4 : 4 client(s), 30 requests each, mode=rate
+############################################################
+[bench] server ready
+[load] 4 clients, 30 req each, mode=rate
+[load] control period 250 ms/robot -> offered 16.0 req/s
+[load] ctl reset_peak: {'ok': True, 'cmd': 'reset_peak', 'profiling': False, 'requests': 0, 'peak_inflight': 0, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.970963478088379, 't_server': 2830448.082685803}
+[load] ctl profile_start: {'ok': True, 'cmd': 'profile_start', 'profiling': True, 'requests': 8, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2830450.224224481}
+  client 2: n=30 e2e mean   299.8 ms p99   324.4 ms   3.26 Hz  missed 27/30
+  client 0: n=30 e2e mean   305.8 ms p99   325.9 ms   3.23 Hz  missed 28/30
+  client 1: n=30 e2e mean   309.1 ms p99   323.5 ms   3.20 Hz  missed 29/30
+  client 3: n=30 e2e mean   314.5 ms p99   324.0 ms   3.18 Hz  missed 30/30
+[load] ctl profile_stop: {'ok': True, 'cmd': 'profile_stop', 'profiling': False, 'requests': 128, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2830471.707238225}
+[load] 120 requests in 9.5 s -> 12.63 req/s, e2e mean 307.3 ms, p99 325.9 ms, deadline misses 114/120 (95%)
+[bench] shutdown ack: {'ok': True, 'cmd': 'shutdown', 'profiling': False, 'requests': 128, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2830472.028924706}
+[bench] server exited
+[bench] nsys stats...
+############################################################
+# c8 : 8 client(s), 30 requests each, mode=rate
+############################################################
+[bench] server ready
+[load] 8 clients, 30 req each, mode=rate
+[load] control period 250 ms/robot -> offered 32.0 req/s
+[load] ctl reset_peak: {'ok': True, 'cmd': 'reset_peak', 'profiling': False, 'requests': 0, 'peak_inflight': 0, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.970963478088379, 't_server': 2830617.380468401}
+[load] ctl profile_start: {'ok': True, 'cmd': 'profile_start', 'profiling': True, 'requests': 16, 'peak_inflight': 1, 'gpu_used_gib': 7.75665283203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2830619.998788575}
+  client 7: n=30 e2e mean   559.9 ms p99   586.9 ms   1.78 Hz  missed 29/30
+  client 2: n=30 e2e mean   555.2 ms p99   585.9 ms   1.79 Hz  missed 29/30
+  client 4: n=30 e2e mean   565.8 ms p99   587.7 ms   1.77 Hz  missed 30/30
+  client 1: n=30 e2e mean   557.6 ms p99   586.4 ms   1.77 Hz  missed 29/30
+  client 6: n=30 e2e mean   570.6 ms p99   587.8 ms   1.75 Hz  missed 30/30
+  client 5: n=30 e2e mean   575.4 ms p99   585.8 ms   1.74 Hz  missed 30/30
+  client 0: n=30 e2e mean   568.2 ms p99   586.3 ms   1.76 Hz  missed 30/30
+  client 3: n=30 e2e mean   573.0 ms p99   587.4 ms   1.74 Hz  missed 30/30
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/profiling/load_clients.py", line 258, in <module>
+    main()
+  File "/home/work/hyunmokchoi/openpi/profiling/load_clients.py", line 222, in main
+    print("[load] ctl profile_stop:", control(ctl, "profile_stop"), flush=True)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/profiling/load_clients.py", line 71, in control
+    return msgpack_numpy.unpackb(conn.recv())
+                                 ^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/websockets/sync/connection.py", line 340, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received

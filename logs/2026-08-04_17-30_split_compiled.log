@@ -1,0 +1,35 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+GPU free at start    : 78.8 / 79.3 GiB
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+model load           : 82.0 s
+weights              : 7.00 GiB
+
+=== compiled latency at each (batch, num_steps) ===
+  B  steps  compile s   mean ms   p99 ms
+  1      1      264.7      35.5     37.0
+  1      5      280.5      43.6     45.0
+  1     10        0.2      55.0     56.5
+  2      1      408.8      68.1     69.0
+  2      5        0.2      81.4     81.8
+  2     10        0.2      98.6     99.9
+  4      1        0.1     123.0    123.9
+  4      5        0.2     141.0    142.8
+  4     10        0.3     162.5    164.1
+  8      1        0.2     222.1    226.9
+  8      5        0.3     248.3    252.5
+  8     10        0.4     280.7    281.9
+ 16      1        0.4     422.1    424.4
+ 16      5        0.5     466.3    468.0
+ 16     10        0.6     521.9    523.0
+
+=== fitted split: latency = prefill + steps x per_denoise ===
+  B  prefill ms  ms/denoise  denoise tot  prefill/robot  denoise/robot  fit err ms
+  1        33.1         2.2         21.8           33.1           21.8        0.39
+  2        64.6         3.4         33.9           32.3           16.9        0.19
+  4       118.7         4.4         43.9           29.7           11.0        0.27
+  8       215.6         6.5         65.2           27.0            8.1        0.13
+ 16       411.0        11.1        110.9           25.7            6.9        0.08
+
+wrote data/bench_split_compiled.json

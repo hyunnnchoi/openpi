@@ -1,0 +1,38 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+GPU free at start    : 70.8 / 79.3 GiB
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+model load           : 113.5 s
+weights              : 7.18 GiB
+
+=== uncompiled (type(model).sample_actions) ===
+  B  steps   mean ms   p99 ms  ms/robot  peak GiB
+  1      1     198.9    201.0     198.9      7.12
+  1     10     714.0    722.3     714.0      7.12
+  2      1     211.8    216.0     105.9      7.26
+  2     10     705.2    770.1     352.6      7.26
+  4      1     233.7    257.1      58.4      7.55
+  4     10     631.7    671.6     157.9      7.55
+  8      1     346.1    408.0      43.3      8.11
+  8     10     764.4    829.4      95.5      8.11
+ 16      1     556.3    586.5      34.8      9.24
+ 16     10     964.5    991.4      60.3      9.24
+
+=== derived split (from steps=1 vs steps=10) ===
+  B  prefill ms  ms/denoise  denoise tot  prefill %
+  1       141.7        57.2        572.3      19.8%
+  2       156.9        54.8        548.2      22.3%
+  4       189.5        44.2        442.2      30.0%
+  8       299.6        46.5        464.7      39.2%
+ 16       510.9        45.4        453.6      53.0%
+
+=== compiled (max-autotune, the real serving path) ===
+  B  compile s   mean ms   p99 ms  ms/robot
+  1       28.8      55.7     56.9      55.7
+  2       52.2     100.5    102.5      50.2
+  4        0.3     164.6    167.9      41.2
+  8        0.4     282.5    283.6      35.3
+
+wrote data/bench_batch.json
+GPU in use at end    : 8.8 / 79.3 GiB

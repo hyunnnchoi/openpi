@@ -1,0 +1,319 @@
+############################################################
+# c4 : 4 client(s), 30 requests each, mode=rate
+############################################################
+[bench] server ready
+[load] 4 clients, 30 req each, mode=rate
+[load] control period 250 ms/robot -> offered 16.0 req/s
+[load] ctl reset_peak: {'ok': True, 'cmd': 'reset_peak', 'profiling': False, 'requests': 0, 'peak_inflight': 0, 'gpu_used_gib': 7.74493408203125, 'torch_peak_gib': 6.970963478088379, 't_server': 2832361.43516371}
+[load] ctl profile_start: {'ok': True, 'cmd': 'profile_start', 'profiling': True, 'requests': 8, 'peak_inflight': 1, 'gpu_used_gib': 7.74493408203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2832362.30735006}
+  client 1: n=30 e2e mean    97.7 ms p99   188.3 ms   4.10 Hz  missed 0/30
+  client 3: n=30 e2e mean   171.1 ms p99   248.6 ms   4.07 Hz  missed 0/30
+  client 0: n=30 e2e mean   161.5 ms p99   263.1 ms   4.04 Hz  missed 7/30
+  client 2: n=30 e2e mean   201.3 ms p99   254.2 ms   4.00 Hz  missed 4/30
+[load] ctl profile_stop: {'ok': True, 'cmd': 'profile_stop', 'profiling': False, 'requests': 128, 'peak_inflight': 1, 'gpu_used_gib': 7.74493408203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2832369.888020552}
+[load] 120 requests in 7.6 s -> 15.83 req/s, e2e mean 157.9 ms, p99 263.1 ms, deadline misses 11/120 (9%)
+[bench] shutdown ack: {'ok': True, 'cmd': 'shutdown', 'profiling': False, 'requests': 128, 'peak_inflight': 1, 'gpu_used_gib': 7.74493408203125, 'torch_peak_gib': 6.973351001739502, 't_server': 2832370.200745398}
+[bench] server exited
+
+
+============================================================================================
+  c1   1 client(s), mode=rate, period 250 ms, 30 requests in 7.4 s
+============================================================================================
+
+throughput            : 4.07 req/s
+offered load          : 4.00 req/s
+deadline misses       : 0/30 (0%)
+server busy (infer)   : 30.4% of the 7.3 s window
+
+stage (ms)                      mean       p50       p90       p99       min       max
+--------------------------------------------------------------------------------------------
+end-to-end (client)             75.4      74.6      80.0      81.6      71.7      81.6
+  queue wait                     0.8       0.8       1.1       1.4       0.5       1.4
+  server unpack                  0.1       0.1       0.2       0.2       0.1       0.2
+  policy.infer                  74.2      73.1      78.9      80.2      70.5      80.2
+    sample_actions              66.5      65.6      69.8      70.9      64.0      70.9
+    transforms+h2d+d2h           7.7       7.5       9.1       9.3       6.5       9.3
+  server pack                    0.0       0.0       0.0       0.1       0.0       0.1
+  server send                    0.1       0.1       0.1       0.1       0.1       0.1
+  return to client               0.2       0.2       0.2       0.3       0.1       0.3
+client pack (untimed)            0.3       0.3       0.3       0.4       0.2       0.4
+client unpack                    0.1       0.1       0.1       0.1       0.0       0.1
+
+per-client:
+   cid     n   mean ms    p99 ms    max ms      Hz  missed
+     0    30      75.4      81.6      81.6    4.09       0
+
+GPU during window (NVML sampled at 10 Hz):
+  SM utilization      : 18% mean, 20% peak
+  power               : 130 W mean, 352 W peak
+  memory in use       : 7.8 GiB mean, 7.8 GiB peak
+
+model load 83.5 s, weights 7.00 GiB
+first inference (torch.compile) 28354 ms, warm 1393.0 ms
+
+nsys NVTX ranges (GPU-side, projected):
+  range                                      inst    total ms    avg ms
+  :infer c0                                    30      2224.7     74.16
+  :sample_actions                              30      1993.8     66.46
+  :input_transform                             30        13.8      0.46
+  :output_transform                            30         4.0      0.13
+  :unpack                                      31         3.4      0.11
+  :pack                                        30         0.8      0.03
+
+nsys CUDA kernels: 141090 launches, 78 distinct, 1463 ms GPU time
+  kernel                                                                        ms      %   calls
+  ampere_bf16_s16816gemm_bf16_128x256_ldg8_f2f_stages_64x3_tn                279.4   19.1    1020
+  ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_64x3_tn                145.9   10.0     510
+  ampere_bf16_s16816gemm_bf16_128x128_ldg8_f2f_stages_64x3_tn                 91.8    6.3    4860
+  triton_per_fused_addmm_10                                                   81.9    5.6     300
+  triton_tem_fused_mm_12                                                      78.1    5.3   11310
+  triton_tem_fused_addmm_2                                                    70.0    4.8    7290
+  void cutlass::Kernel2<cutlass_80_tensorop_s16816gemm_bf16_64x64_64x6_t      54.5    3.7    5400
+  triton_tem_fused_clone_mm_21                                                54.5    3.7    5400
+  triton_tem_fused_gelu_mm_mul_24                                             50.5    3.5    5400
+  triton_tem_fused_mm_23                                                      43.9    3.0    5400
+
+nsys CUDA API (host time):
+  cudaStreamSynchronize                        1412.2 ms       660 calls
+  cudaGraphLaunch_v10000                        310.5 ms       360 calls
+  cudaMemcpyAsync                                19.6 ms       900 calls
+  cudaLaunchKernel                                6.4 ms       420 calls
+  cudaMemGetInfo                                  4.3 ms        73 calls
+  cudaStreamIsCapturing_v10000                    1.3 ms       390 calls
+  cudaDeviceSynchronize                           0.9 ms        31 calls
+  cuProfilerStart                                 0.0 ms         1 calls
+
+============================================================================================
+  c2   2 client(s), mode=rate, period 250 ms, 60 requests in 7.5 s
+============================================================================================
+
+throughput            : 8.04 req/s
+offered load          : 8.00 req/s
+deadline misses       : 0/60 (0%)
+server busy (infer)   : 61.3% of the 7.4 s window
+
+stage (ms)                      mean       p50       p90       p99       min       max
+--------------------------------------------------------------------------------------------
+end-to-end (client)            115.3     142.1     158.5     164.9      71.5     164.9
+  queue wait                    39.3      71.5      81.1      83.2       0.6      83.2
+  server unpack                  0.1       0.1       0.2       0.3       0.1       0.3
+  policy.infer                  75.5      76.5      80.6      81.9      69.9      81.9
+    sample_actions              67.7      68.3      71.3      72.8      63.7      72.8
+    transforms+h2d+d2h           7.8       8.3       9.1       9.9       6.1       9.9
+  server pack                    0.0       0.0       0.1       0.1       0.0       0.1
+  server send                    0.1       0.1       0.1       0.1       0.1       0.1
+  return to client               0.2       0.1       0.2       0.3       0.1       0.3
+client pack (untimed)            0.2       0.2       0.2       0.3       0.2       0.3
+client unpack                    0.0       0.0       0.0       0.1       0.0       0.1
+
+per-client:
+   cid     n   mean ms    p99 ms    max ms      Hz  missed
+     0    30      87.7     162.7     162.7    4.09       0
+     1    30     142.8     164.9     164.9    4.06       0
+
+GPU during window (NVML sampled at 10 Hz):
+  SM utilization      : 37% mean, 41% peak
+  power               : 170 W mean, 358 W peak
+  memory in use       : 7.8 GiB mean, 7.8 GiB peak
+
+model load 81.7 s, weights 7.00 GiB
+first inference (torch.compile) 34201 ms, warm 1584.8 ms
+
+nsys NVTX ranges (GPU-side, projected):
+  range                                      inst    total ms    avg ms
+  :sample_actions                              60      4059.7     67.66
+  :infer c0                                    30      2286.4     76.21
+  :infer c1                                    30      2244.5     74.82
+  :input_transform                             60        22.1      0.37
+  :output_transform                            60         8.0      0.13
+  :unpack                                      61         6.3      0.10
+  :pack                                        60         1.7      0.03
+
+nsys CUDA kernels: 282180 launches, 78 distinct, 2932 ms GPU time
+  kernel                                                                        ms      %   calls
+  ampere_bf16_s16816gemm_bf16_128x256_ldg8_f2f_stages_64x3_tn                560.2   19.1    2040
+  ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_64x3_tn                292.4   10.0    1020
+  ampere_bf16_s16816gemm_bf16_128x128_ldg8_f2f_stages_64x3_tn                184.5    6.3    9720
+  triton_per_fused_addmm_10                                                  163.8    5.6     600
+  triton_tem_fused_mm_12                                                     156.4    5.3   22620
+  triton_tem_fused_addmm_2                                                   140.7    4.8   14580
+  void cutlass::Kernel2<cutlass_80_tensorop_s16816gemm_bf16_64x64_64x6_t     109.0    3.7   10800
+  triton_tem_fused_clone_mm_21                                               108.9    3.7   10800
+  triton_tem_fused_gelu_mm_mul_24                                            100.9    3.4   10800
+  triton_tem_fused_mm_23                                                      87.7    3.0   10800
+
+nsys CUDA API (host time):
+  cudaStreamSynchronize                        2818.1 ms      1320 calls
+  cudaGraphLaunch_v10000                        671.6 ms       720 calls
+  cudaMemcpyAsync                                38.1 ms      1800 calls
+  cudaLaunchKernel                               12.8 ms       840 calls
+  cudaMemGetInfo                                  6.1 ms        73 calls
+  cudaStreamIsCapturing_v10000                    2.7 ms       780 calls
+  cudaDeviceSynchronize                           1.8 ms        61 calls
+  cuProfilerStart                                 0.0 ms         1 calls
+
+============================================================================================
+  c4   4 client(s), mode=rate, period 250 ms, 120 requests in 7.6 s
+============================================================================================
+
+throughput            : 15.83 req/s
+offered load          : 16.00 req/s
+deadline misses       : 11/120 (9%)
+server busy (infer)   : 98.1% of the 7.5 s window
+
+stage (ms)                      mean       p50       p90       p99       min       max
+--------------------------------------------------------------------------------------------
+end-to-end (client)            157.9     182.3     246.2     261.1      61.2     263.1
+  queue wait                    96.3     122.2     184.7     197.2       0.6     197.8
+  server unpack                  0.1       0.1       0.1       0.1       0.1       0.3
+  policy.infer                  61.3      60.9      63.4      66.1      59.5      66.3
+    sample_actions              55.0      54.8      56.5      57.9      53.6      58.3
+    transforms+h2d+d2h           6.3       6.0       7.7       9.0       5.8       9.3
+  server pack                    0.0       0.0       0.0       0.0       0.0       0.0
+  server send                    0.1       0.1       0.1       0.1       0.1       0.1
+  return to client               0.2       0.2       0.2       0.3       0.1       0.3
+client pack (untimed)            0.2       0.2       0.3       0.3       0.2       0.4
+client unpack                    0.0       0.0       0.1       0.1       0.0       0.1
+
+per-client:
+   cid     n   mean ms    p99 ms    max ms      Hz  missed
+     0    30     161.5     263.1     263.1    4.04       7
+     1    30      97.7     188.3     188.3    4.10       0
+     2    30     201.3     254.2     254.2    4.00       4
+     3    30     171.1     248.6     248.6    4.07       0
+
+GPU during window (NVML sampled at 10 Hz):
+  SM utilization      : 76% mean, 79% peak
+  power               : 246 W mean, 362 W peak
+  memory in use       : 7.7 GiB mean, 7.7 GiB peak
+
+model load 93.2 s, weights 7.00 GiB
+first inference (torch.compile) 29061 ms, warm 1308.9 ms
+
+nsys NVTX ranges (GPU-side, projected):
+  range                                      inst    total ms    avg ms
+  :sample_actions                             120      8323.8     69.37
+  :infer c0                                    30      2345.6     78.19
+  :infer c2                                    30      2344.2     78.14
+  :infer c1                                    30      2343.0     78.10
+  :infer c3                                    30      2334.1     77.80
+  :input_transform                            120        44.2      0.37
+  :output_transform                           120        17.4      0.14
+  :unpack                                     121        11.3      0.09
+  :pack                                       120         3.6      0.03
+
+nsys CUDA kernels: 564360 launches, 78 distinct, 5884 ms GPU time
+  kernel                                                                        ms      %   calls
+  ampere_bf16_s16816gemm_bf16_128x256_ldg8_f2f_stages_64x3_tn               1122.7   19.1    4080
+  ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_64x3_tn                585.7   10.0    2040
+  ampere_bf16_s16816gemm_bf16_128x128_ldg8_f2f_stages_64x3_tn                370.8    6.3   19440
+  triton_per_fused_addmm_10                                                  327.7    5.6    1200
+  triton_tem_fused_mm_12                                                     314.2    5.3   45240
+  triton_tem_fused_addmm_2                                                   283.3    4.8   29160
+  triton_tem_fused_clone_mm_21                                               218.7    3.7   21600
+  void cutlass::Kernel2<cutlass_80_tensorop_s16816gemm_bf16_64x64_64x6_t     218.7    3.7   21600
+  triton_tem_fused_gelu_mm_mul_24                                            202.3    3.4   21600
+  triton_tem_fused_mm_23                                                     175.8    3.0   21600
+
+nsys CUDA API (host time):
+  cudaStreamSynchronize                        5652.4 ms      2640 calls
+  cudaGraphLaunch_v10000                       1483.6 ms      1440 calls
+  cudaMemcpyAsync                                79.8 ms      3600 calls
+  cudaLaunchKernel                               27.5 ms      1680 calls
+  cudaMemGetInfo                                  7.4 ms        93 calls
+  cudaStreamIsCapturing_v10000                    5.6 ms      1560 calls
+  cudaDeviceSynchronize                           3.6 ms       121 calls
+  cuProfilerStart                                 0.0 ms         1 calls
+
+============================================================================================
+  c8   8 client(s), mode=rate, period 250 ms, 240 requests in 18.1 s
+============================================================================================
+
+throughput            : 13.29 req/s
+offered load          : 32.00 req/s
+deadline misses       : 237/240 (99%)
+server busy (infer)   : 99.2% of the 18.0 s window
+
+stage (ms)                      mean       p50       p90       p99       min       max
+--------------------------------------------------------------------------------------------
+end-to-end (client)            589.8     580.9     643.1     648.7      81.7     651.4
+  queue wait                   515.0     508.4     563.5     567.9       1.3     570.7
+  server unpack                  0.1       0.1       0.1       0.1       0.1       0.2
+  policy.infer                  74.4      72.3      80.1      82.5      69.6      88.3
+    sample_actions              67.0      65.8      70.7      74.4      63.4      75.0
+    transforms+h2d+d2h           7.4       6.7       9.5      10.3       6.1      13.9
+  server pack                    0.0       0.0       0.1       0.1       0.0       0.1
+  server send                    0.1       0.1       0.1       0.1       0.1       0.1
+  return to client               0.2       0.2       0.2       0.3       0.1       0.3
+client pack (untimed)            0.2       0.2       0.3       0.3       0.2       0.3
+client unpack                    0.0       0.0       0.1       0.1       0.0       0.1
+
+per-client:
+   cid     n   mean ms    p99 ms    max ms      Hz  missed
+     0    30     586.8     647.2     647.2    1.70      29
+     1    30     597.2     648.2     648.2    1.67      30
+     2    30     592.4     651.4     651.4    1.69      30
+     3    30     589.9     649.4     649.4    1.69      30
+     4    30     594.8     648.1     648.1    1.68      30
+     5    30     599.7     647.5     647.5    1.67      30
+     6    30     581.4     646.6     646.6    1.71      29
+     7    30     576.4     648.7     648.7    1.72      29
+
+GPU during window (NVML sampled at 10 Hz):
+  SM utilization      : 64% mean, 69% peak
+  power               : 219 W mean, 360 W peak
+  memory in use       : 7.8 GiB mean, 7.8 GiB peak
+
+model load 91.2 s, weights 7.00 GiB
+first inference (torch.compile) 34177 ms, warm 1295.6 ms
+
+nsys NVTX ranges (GPU-side, projected):
+  range                                      inst    total ms    avg ms
+  :sample_actions                             240     16068.5     66.95
+  :infer c0                                    30      2262.8     75.43
+  :infer c3                                    30      2237.6     74.59
+  :infer c4                                    30      2236.5     74.55
+  :infer c5                                    30      2232.9     74.43
+  :infer c6                                    30      2231.2     74.37
+  :infer c7                                    30      2225.4     74.18
+  :infer c2                                    30      2220.9     74.03
+  :infer c1                                    30      2212.5     73.75
+  :input_transform                            240        81.9      0.34
+  :output_transform                           240        32.9      0.14
+  :unpack                                     241        22.9      0.09
+  :pack                                       240         6.8      0.03
+
+nsys CUDA kernels: 1128720 launches, 78 distinct, 11785 ms GPU time
+  kernel                                                                        ms      %   calls
+  ampere_bf16_s16816gemm_bf16_128x256_ldg8_f2f_stages_64x3_tn               2248.6   19.1    8160
+  ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_64x3_tn               1173.2   10.0    4080
+  ampere_bf16_s16816gemm_bf16_128x128_ldg8_f2f_stages_64x3_tn                742.8    6.3   38880
+  triton_per_fused_addmm_10                                                  655.5    5.6    2400
+  triton_tem_fused_mm_12                                                     629.6    5.3   90480
+  triton_tem_fused_addmm_2                                                   567.7    4.8   58320
+  triton_tem_fused_clone_mm_21                                               438.0    3.7   43200
+  void cutlass::Kernel2<cutlass_80_tensorop_s16816gemm_bf16_64x64_64x6_t     437.6    3.7   43200
+  triton_tem_fused_gelu_mm_mul_24                                            404.9    3.4   43200
+  triton_tem_fused_mm_23                                                     351.9    3.0   43200
+
+nsys CUDA API (host time):
+  cudaStreamSynchronize                       11383.3 ms      5280 calls
+  cudaGraphLaunch_v10000                       2564.0 ms      2880 calls
+  cudaMemcpyAsync                               138.8 ms      7200 calls
+  cudaLaunchKernel                               47.9 ms      3360 calls
+  cudaMemGetInfo                                 14.4 ms       175 calls
+  cudaStreamIsCapturing_v10000                   10.1 ms      3120 calls
+  cudaDeviceSynchronize                           6.9 ms       241 calls
+  cuProfilerStart                                 0.0 ms         1 calls
+
+============================================================================================
+  SWEEP
+============================================================================================
+run           clients  thru r/s  e2e mean   e2e p99  queue p50  infer p50  busy %  miss %
+-----------------------------------------------------------------------------------------
+c1                  1      4.07      75.4      81.6        0.8       73.1    30.4     0.0
+c2                  2      8.04     115.3     164.9       71.5       76.5    61.3     0.0
+c4                  4     15.83     157.9     261.1      122.2       60.9    98.1     9.2
+c8                  8     13.29     589.8     648.7      508.4       72.3    99.2    98.8
+
+wrote data/profiling/report.json

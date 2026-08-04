@@ -1,0 +1,31 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+GPU free at start    : 14.6 / 79.3 GiB
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+model load           : 135.4 s
+weights              : 7.00 GiB
+
+=== uncompiled (type(model).sample_actions) ===
+  B  steps   mean ms   p99 ms  ms/robot  peak GiB
+  1      1     235.3    241.1     235.3      7.12
+  1     10     757.8    764.2     757.8      7.12
+  2      1     305.0    307.9     152.5      7.26
+  2     10     859.1    867.4     429.5      7.26
+  4      1     434.9    437.6     108.7      7.55
+  4     10     919.5    986.1     229.9      7.55
+  8      1     696.0    703.8      87.0      8.11
+  8     10    1120.1   1138.7     140.0      8.11
+ 16      1    1285.4   1292.2      80.3      9.24
+ 16     10    1748.7   1755.1     109.3      9.24
+
+=== derived split (from steps=1 vs steps=10) ===
+  B  prefill ms  ms/denoise  denoise tot  prefill %
+  1       177.3        58.1        580.5      23.4%
+  2       243.4        61.6        615.7      28.3%
+  4       381.1        53.8        538.4      41.4%
+  8       648.9        47.1        471.2      57.9%
+ 16      1233.9        51.5        514.7      70.6%
+
+=== compiled (max-autotune, the real serving path) ===
+  B  compile s   mean ms   p99 ms  ms/robot

@@ -1,0 +1,34 @@
+############################################################
+# c8 : 8 client(s), 30 requests each, mode=rate
+############################################################
+server died during startup; tail of data/profiling/c8.server.log:
+  File "/home/work/hyunmokchoi/openpi/profiling/serve_profiled.py", line 411, in <module>
+    main()
+  File "/home/work/hyunmokchoi/openpi/profiling/serve_profiled.py", line 404, in main
+    asyncio.run(server.run())
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/profiling/serve_profiled.py", line 200, in run
+    async with _server.serve(
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/websockets/asyncio/server.py", line 462, in __aenter__
+    return await self
+           ^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/websockets/asyncio/server.py", line 451, in _await
+    self.server = await self.create_server()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/websockets/asyncio/server.py", line 672, in create_server
+    return await loop.create_server(protocol_factory, host, port, **kwargs)  # type: ignore[arg-type]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 1536, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 98] error while attempting to bind on address ('127.0.0.1', 8000): address already in use
+Processing events...
+Generated:
+	No reports were generated

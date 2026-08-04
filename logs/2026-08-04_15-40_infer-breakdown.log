@@ -1,0 +1,19 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/probe_infer_breakdown.py", line 90, in <module>
+    main()
+  File "/home/work/hyunmokchoi/openpi/probe_infer_breakdown.py", line 75, in main
+    policy._output_transform(outputs)  # noqa: SLF001
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/src/openpi/transforms.py", line 70, in __call__
+    data = transform(data)
+           ^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/src/openpi/transforms.py", line 163, in __call__
+    return apply_tree(
+           ^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/src/openpi/transforms.py", line 418, in apply_tree
+    raise ValueError(f"Selector key {k} not found in tree")
+ValueError: Selector key state not found in tree
