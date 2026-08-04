@@ -1,0 +1,102 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+GPU free at start    : 78.8 / 79.3 GiB
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+model load           : 85.8 s
+robots               : 4, phases [0.0, 60.0, 125.0, 190.0]
+compile mode         : max-autotune
+warming compiled shapes (record pass included; sizes 1-2 are the slow ones)...
+  B=1 warm in 53.0 s
+  B=2 warm in 92.7 s
+  B=3 warm in 10.4 s
+  B=4 warm in 10.5 s
+  B=5 warm in 10.7 s
+  B=6 warm in 10.9 s
+warm.
+
+policy              done thru r/s   e2e mean   e2e p50   e2e p99   e2e max     miss
+  serial: dry run (compiling) 2.0 s
+serial           32/32      15.96       66.7      66.7      70.8      70.8     0.0%
+    [batch] size= 1  obs     8.0 ms  gpu     56.4 ms
+    [batch] size= 1  obs     7.6 ms  gpu     56.7 ms
+    [batch] size= 1  obs     6.5 ms  gpu     57.1 ms
+    [batch] size= 1  obs     6.7 ms  gpu     56.5 ms
+    [batch] size= 1  obs     6.8 ms  gpu     56.0 ms
+    [batch] size= 1  obs     6.4 ms  gpu     56.0 ms
+    [batch] size= 1  obs     6.7 ms  gpu     56.2 ms
+    [batch] size= 1  obs     6.4 ms  gpu     56.3 ms
+    [batch] size= 1  obs     6.3 ms  gpu     56.7 ms
+    [batch] size= 1  obs     6.5 ms  gpu     56.9 ms
+    [batch] size= 1  obs     6.4 ms  gpu     56.8 ms
+    [batch] size= 1  obs     6.3 ms  gpu     56.2 ms
+    [batch] size= 1  obs     6.5 ms  gpu     56.4 ms
+    [batch] size= 1  obs     6.4 ms  gpu     55.8 ms
+    [batch] size= 1  obs     6.4 ms  gpu     55.6 ms
+    [batch] size= 1  obs     6.4 ms  gpu     55.9 ms
+    [batch] size= 1  obs     6.7 ms  gpu     56.2 ms
+    [batch] size= 1  obs     6.6 ms  gpu     56.5 ms
+    [batch] size= 1  obs     6.3 ms  gpu     56.7 ms
+    [batch] size= 1  obs     6.2 ms  gpu     56.5 ms
+    [batch] size= 1  obs     6.3 ms  gpu     56.8 ms
+    [batch] size= 1  obs     6.6 ms  gpu     56.4 ms
+    [batch] size= 1  obs     6.1 ms  gpu     55.8 ms
+    [batch] size= 1  obs     6.5 ms  gpu     55.2 ms
+    [batch] size= 1  obs     6.4 ms  gpu     55.9 ms
+    [batch] size= 1  obs     7.7 ms  gpu     57.0 ms
+    [batch] size= 1  obs     7.6 ms  gpu     56.4 ms
+    [batch] size= 1  obs     6.5 ms  gpu     57.2 ms
+    [batch] size= 1  obs     6.6 ms  gpu     57.1 ms
+    [batch] size= 1  obs     6.8 ms  gpu     56.8 ms
+    [batch] size= 1  obs     6.4 ms  gpu     56.3 ms
+    [batch] size= 1  obs     6.4 ms  gpu     55.5 ms
+  batch: dry run (compiling) 2.0 s
+    [batch] size= 1  obs     6.3 ms  gpu     55.5 ms
+    [batch] size= 1  obs     6.2 ms  gpu     55.1 ms
+    [batch] size= 1  obs     6.3 ms  gpu     55.5 ms
+    [batch] size= 1  obs     6.3 ms  gpu     56.5 ms
+    [batch] size= 1  obs     6.8 ms  gpu     57.6 ms
+    [batch] size= 1  obs     6.8 ms  gpu     56.8 ms
+    [batch] size= 1  obs     6.7 ms  gpu     56.7 ms
+    [batch] size= 1  obs     6.7 ms  gpu     56.3 ms
+    [batch] size= 1  obs     6.5 ms  gpu     55.8 ms
+    [batch] size= 1  obs     6.5 ms  gpu     61.8 ms
+    [batch] size= 1  obs     7.0 ms  gpu     57.1 ms
+    [batch] size= 1  obs     6.8 ms  gpu     57.5 ms
+    [batch] size= 1  obs     6.8 ms  gpu     56.2 ms
+    [batch] size= 1  obs     6.5 ms  gpu     56.0 ms
+    [batch] size= 1  obs     6.2 ms  gpu     55.8 ms
+    [batch] size= 1  obs     6.8 ms  gpu     56.1 ms
+    [batch] size= 1  obs     6.4 ms  gpu     56.2 ms
+    [batch] size= 1  obs     6.3 ms  gpu     56.4 ms
+    [batch] size= 1  obs     6.2 ms  gpu     57.0 ms
+    [batch] size= 1  obs     6.6 ms  gpu     56.5 ms
+    [batch] size= 1  obs     6.2 ms  gpu     56.3 ms
+    [batch] size= 1  obs     6.3 ms  gpu     56.2 ms
+    [batch] size= 1  obs     6.4 ms  gpu     56.6 ms
+    [batch] size= 1  obs     6.8 ms  gpu     56.1 ms
+    [batch] size= 1  obs     6.5 ms  gpu     55.5 ms
+    [batch] size= 1  obs     6.1 ms  gpu     55.7 ms
+    [batch] size= 1  obs     6.6 ms  gpu     56.0 ms
+    [batch] size= 1  obs     7.2 ms  gpu     57.8 ms
+    [batch] size= 1  obs     7.1 ms  gpu     57.2 ms
+    [batch] size= 1  obs     6.5 ms  gpu     56.5 ms
+    [batch] size= 1  obs     6.4 ms  gpu     56.3 ms
+    [batch] size= 1  obs     7.3 ms  gpu     55.5 ms
+batch            32/32      15.81       77.1      79.6      88.5      88.5     0.0%
+    [ring] per-tick cost, by in-flight count:
+      n= 1  ticks=   7  merge    2.2 ms  denoise    3.2 ms
+      n= 2  ticks=  13  merge    2.0 ms  denoise    5.0 ms
+      n= 3  ticks=  81  merge    1.5 ms  denoise    5.4 ms
+      n= 4  ticks=  11  merge    1.5 ms  denoise    6.0 ms
+      prefill B= 1  n= 32     32.5 ms
+  continuous: dry run (compiling) 2.1 s
+    [ring] per-tick cost, by in-flight count:
+      n= 1  ticks=   8  merge    1.5 ms  denoise    3.0 ms
+      n= 2  ticks=  22  merge    1.5 ms  denoise    5.0 ms
+      n= 3  ticks=  84  merge    1.5 ms  denoise    5.4 ms
+      n= 4  ticks=   4  merge    1.6 ms  denoise    6.2 ms
+      prefill B= 1  n= 32     32.4 ms
+continuous       32/32      15.45      215.1     213.4     265.2     265.2    12.5%
+
+wrote data/bench_scheduler.json
