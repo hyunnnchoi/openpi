@@ -1,0 +1,4 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+GPU free at start    : 14.6 / 79.3 GiB
+!! GPU is not idle -- see RESULTS_A100.md section 5

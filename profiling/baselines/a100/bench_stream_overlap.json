@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "prefill_batch": 2,
+    "denoise_batch": 4,
+    "denoise_steps": 4,
+    "iters": 20,
+    "modes": [
+      "max-autotune-no-cudagraphs"
+    ],
+    "gpu_free_at_start_gib": 78.83880615234375
+  },
+  "modes": {
+    "max-autotune-no-cudagraphs": {
+      "prefill_ms": 80.11669432744384,
+      "denoise_ms": 40.62046557664871,
+      "serial_ms": 108.12563416548073,
+      "overlap_ms": 121.35957891587168,
+      "floor_ms": 80.11669432744384,
+      "saved_ms": -13.233944750390947,
+      "overlap_efficiency": -0.3257950041320718
+    }
+  }
+}

@@ -1,0 +1,444 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+GPU free at start    : 78.8 / 79.3 GiB
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+model load           : 88.8 s
+
+=== compile mode: max-autotune ===
+warming...
+AUTOTUNE mm(1936x2048, 2048x16384)
+  mm 0.5516 ms 100.0% 
+  triton_mm_9477 0.6207 ms 88.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9478 0.6331 ms 87.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9472 0.6755 ms 81.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9474 0.6977 ms 79.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9470 0.7093 ms 77.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9479 0.7279 ms 75.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_9471 0.7870 ms 70.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_9475 0.8599 ms 64.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_9473 0.9088 ms 60.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 0.9910 seconds and 0.0004 seconds precompiling for 20 choices
+AUTOTUNE mm(512x1152, 1152x4304)
+  triton_mm_92 0.0660 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_94 0.0666 ms 99.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_100 0.0670 ms 98.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_96 0.0685 ms 96.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_93 0.0693 ms 95.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  mm 0.0695 ms 95.0% 
+  triton_mm_99 0.0697 ms 94.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_97 0.0698 ms 94.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_95 0.0720 ms 91.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=4
+  triton_mm_101 0.0742 ms 88.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 0.6580 seconds and 0.0003 seconds precompiling for 20 choices
+AUTOTUNE mm(1936x2048, 2048x2048)
+  triton_mm_9436 0.1012 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9434 0.1052 ms 96.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9439 0.1052 ms 96.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9432 0.1055 ms 95.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9440 0.1076 ms 94.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9433 0.1106 ms 91.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_9441 0.1131 ms 89.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  mm 0.1133 ms 89.3% 
+  triton_mm_9437 0.1148 ms 88.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_9435 0.1169 ms 86.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 0.7264 seconds and 0.0003 seconds precompiling for 20 choices
+AUTOTUNE mm(512x1152, 1152x1152)
+  triton_mm_66 0.0589 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_65 0.0590 ms 99.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_74 0.0592 ms 99.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_75 0.0592 ms 99.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_82 0.0593 ms 99.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_77 0.0593 ms 99.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_81 0.0593 ms 99.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_68 0.0594 ms 99.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_71 0.0595 ms 99.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=8
+  triton_mm_78 0.0596 ms 98.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 0.6149 seconds and 0.0003 seconds precompiling for 20 choices
+AUTOTUNE convolution(2x3x224x224, 1152x3x14x14)
+  convolution 0.1884 ms 100.0% 
+  triton_convolution2d_4 0.2182 ms 86.3% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, GROUPS=1, KERNEL_H=14, KERNEL_W=14, PADDING_H=0, PADDING_W=0, STRIDE_H=14, STRIDE_W=14, UNROLL=False, num_stages=2, num_warps=4
+  triton_convolution2d_5 0.2970 ms 63.5% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=256, GROUPS=1, KERNEL_H=14, KERNEL_W=14, PADDING_H=0, PADDING_W=0, STRIDE_H=14, STRIDE_W=14, UNROLL=False, num_stages=2, num_warps=8
+  triton_convolution2d_3 0.2993 ms 63.0% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=128, BLOCK_N=128, GROUPS=1, KERNEL_H=14, KERNEL_W=14, PADDING_H=0, PADDING_W=0, STRIDE_H=14, STRIDE_W=14, UNROLL=False, num_stages=2, num_warps=8
+  triton_convolution2d_6 0.3019 ms 62.4% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=14, KERNEL_W=14, PADDING_H=0, PADDING_W=0, STRIDE_H=14, STRIDE_W=14, UNROLL=False, num_stages=2, num_warps=8
+  triton_convolution2d_0 0.3462 ms 54.4% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=256, GROUPS=1, KERNEL_H=14, KERNEL_W=14, PADDING_H=0, PADDING_W=0, STRIDE_H=14, STRIDE_W=14, UNROLL=False, num_stages=2, num_warps=4
+  triton_convolution2d_2 0.5199 ms 36.2% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=1024, BLOCK_N=16, GROUPS=1, KERNEL_H=14, KERNEL_W=14, PADDING_H=0, PADDING_W=0, STRIDE_H=14, STRIDE_W=14, UNROLL=False, num_stages=1, num_warps=8
+  triton_convolution2d_1 0.7145 ms 26.4% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=14, KERNEL_W=14, PADDING_H=0, PADDING_W=0, STRIDE_H=14, STRIDE_W=14, UNROLL=False, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 0.4319 seconds and 0.0003 seconds precompiling for 8 choices
+AUTOTUNE mm(512x4304, 4304x1152)
+  triton_mm_114 0.0862 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=False, GROUP_M=8, num_stages=4, num_warps=4
+  triton_mm_113 0.0938 ms 91.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=False, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_109 0.0958 ms 90.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, EVEN_K=False, GROUP_M=8, num_stages=3, num_warps=8
+  triton_mm_106 0.0960 ms 89.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, EVEN_K=False, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_112 0.0969 ms 89.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=False, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_116 0.1020 ms 84.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=False, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_110 0.1022 ms 84.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=64, EVEN_K=False, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_103 0.1143 ms 75.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, EVEN_K=False, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_115 0.1173 ms 73.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=False, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_105 0.1177 ms 73.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=False, GROUP_M=8, num_stages=5, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 0.9097 seconds and 0.0004 seconds precompiling for 20 choices
+AUTOTUNE addmm(512x2048, 512x1152, 1152x2048)
+  triton_mm_9257 0.0708 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_9270 0.0835 ms 84.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=8
+  triton_mm_9262 0.0854 ms 82.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=8
+  triton_mm_9265 0.0862 ms 82.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_9269 0.0863 ms 82.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_9261 0.0864 ms 81.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_9258 0.0865 ms 81.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_9263 0.0865 ms 81.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_9273 0.0871 ms 81.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_9259 0.0873 ms 81.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 0.9652 seconds and 0.0004 seconds precompiling for 21 choices
+AUTOTUNE mm(1936x2048, 2048x256)
+  triton_mm_9361 0.0651 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_9358 0.0651 ms 99.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9359 0.0653 ms 99.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=4
+  triton_mm_9355 0.0655 ms 99.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_9354 0.0658 ms 98.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=8
+  triton_mm_9357 0.0659 ms 98.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_9365 0.0673 ms 96.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_9356 0.0676 ms 96.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9360 0.0680 ms 95.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9364 0.0690 ms 94.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 0.7424 seconds and 0.0003 seconds precompiling for 20 choices
+AUTOTUNE mm(1936x16384, 16384x2048)
+  mm 0.5531 ms 100.0% 
+  triton_mm_9491 0.7503 ms 73.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9489 0.7668 ms 72.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9496 0.7803 ms 70.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9497 0.7831 ms 70.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9498 0.8039 ms 68.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_9492 0.8199 ms 67.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=4
+  triton_mm_9490 0.8523 ms 64.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_9493 0.8746 ms 63.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_9494 0.8933 ms 61.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 1.0361 seconds and 0.0003 seconds precompiling for 20 choices
+AUTOTUNE mm(40x1024, 1024x4096)
+  triton_mm_13095 0.0594 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_13089 0.0598 ms 99.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=8
+  triton_mm_13094 0.0598 ms 99.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=4
+  triton_mm_13086 0.0599 ms 99.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_13091 0.0602 ms 98.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_13093 0.0603 ms 98.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_13083 0.0603 ms 98.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_13085 0.0605 ms 98.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_13098 0.0605 ms 98.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_13096 0.0608 ms 97.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 0.5703 seconds and 0.0003 seconds precompiling for 18 choices
+E0804 20:35:38.830000 101455 .venv/lib/python3.11/site-packages/torch/_inductor/select_algorithm.py:2100] [6/0] Runtime error during autotuning: 
+E0804 20:35:38.830000 101455 .venv/lib/python3.11/site-packages/torch/_inductor/select_algorithm.py:2100] [6/0] No valid triton configs. OutOfResources: out of resource: shared memory, Required: 221184, Hardware limit: 166912. Reducing block sizes or `num_stages` may help.. 
+E0804 20:35:38.830000 101455 .venv/lib/python3.11/site-packages/torch/_inductor/select_algorithm.py:2100] [6/0] Ignoring this choice.
+AUTOTUNE mm(4x1024, 1024x1024)
+  triton_mm_12283 0.0596 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_12286 0.0598 ms 99.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_12280 0.0600 ms 99.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_12287 0.0603 ms 98.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=4
+  triton_mm_12289 0.0605 ms 98.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=16, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_12282 0.0606 ms 98.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_12281 0.0609 ms 97.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_12284 0.0610 ms 97.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=16, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_12277 0.0617 ms 96.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=16, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=2
+  triton_mm_12279 0.0617 ms 96.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 0.6309 seconds and 0.0003 seconds precompiling for 18 choices
+AUTOTUNE mm(40x2048, 2048x1024)
+  triton_mm_13052 0.0803 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_13060 0.0812 ms 98.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=4
+  triton_mm_13058 0.0813 ms 98.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_13055 0.0821 ms 97.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=8
+  triton_mm_13056 0.0823 ms 97.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_13061 0.0828 ms 96.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_13064 0.0829 ms 96.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_13062 0.0831 ms 96.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_13049 0.0835 ms 96.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_13051 0.0838 ms 95.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 0.8272 seconds and 0.0003 seconds precompiling for 18 choices
+E0804 20:35:49.324000 101455 .venv/lib/python3.11/site-packages/torch/_inductor/select_algorithm.py:2100] [6/0] Runtime error during autotuning: 
+E0804 20:35:49.324000 101455 .venv/lib/python3.11/site-packages/torch/_inductor/select_algorithm.py:2100] [6/0] No valid triton configs. OutOfResources: out of resource: shared memory, Required: 221184, Hardware limit: 166912. Reducing block sizes or `num_stages` may help.. 
+E0804 20:35:49.324000 101455 .venv/lib/python3.11/site-packages/torch/_inductor/select_algorithm.py:2100] [6/0] Ignoring this choice.
+AUTOTUNE mm(4x1024, 1024x3072)
+  triton_mm_12313 0.0704 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_12318 0.0736 ms 95.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=16, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_12315 0.0765 ms 92.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_12317 0.0771 ms 91.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_12321 0.0780 ms 90.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=4
+  triton_mm_12314 0.0780 ms 90.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_12322 0.0784 ms 89.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=8
+  triton_mm_12320 0.0785 ms 89.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_12323 0.0793 ms 88.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=16, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_12316 0.0806 ms 87.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 0.7866 seconds and 0.0003 seconds precompiling for 18 choices
+AUTOTUNE mm(40x32, 32x1024)
+  triton_mm_12936 0.0746 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=1, num_warps=2
+  triton_mm_12949 0.0756 ms 98.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_12940 0.0757 ms 98.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_12947 0.0757 ms 98.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=4
+  triton_mm_12950 0.0760 ms 98.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=8
+  triton_mm_12942 0.0763 ms 97.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_12939 0.0766 ms 97.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_12945 0.0767 ms 97.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_12937 0.0769 ms 96.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=32, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_12941 0.0770 ms 96.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 0.7593 seconds and 0.0003 seconds precompiling for 17 choices
+AUTOTUNE mm(40x1024, 1024x2048)
+  triton_mm_12959 0.0768 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=8
+  triton_mm_12961 0.0775 ms 99.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_12954 0.0780 ms 98.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_12968 0.0787 ms 97.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_12955 0.0789 ms 97.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_12953 0.0789 ms 97.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_12956 0.0792 ms 96.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_12964 0.0798 ms 96.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=4
+  triton_mm_12960 0.0801 ms 95.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_12958 0.0803 ms 95.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 0.8275 seconds and 0.0004 seconds precompiling for 18 choices
+AUTOTUNE bmm(4x128x1, 4x1x10)
+  triton_bmm_12979 0.0743 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=128, BLOCK_N=16, EVEN_K=False, GROUP_M=8, num_stages=5, num_warps=8
+  triton_bmm_12976 0.0769 ms 96.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=128, BLOCK_N=16, EVEN_K=False, GROUP_M=8, num_stages=3, num_warps=4
+  triton_bmm_12974 0.0777 ms 95.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=16, EVEN_K=False, GROUP_M=8, num_stages=3, num_warps=4
+  triton_bmm_12977 0.0780 ms 95.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=128, BLOCK_N=16, EVEN_K=False, GROUP_M=8, num_stages=4, num_warps=8
+  triton_bmm_12978 0.0794 ms 93.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=128, BLOCK_N=16, EVEN_K=False, GROUP_M=8, num_stages=2, num_warps=8
+  triton_bmm_12975 0.0794 ms 93.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=16, EVEN_K=False, GROUP_M=8, num_stages=4, num_warps=4
+  triton_bmm_12973 0.0801 ms 92.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=16, EVEN_K=False, GROUP_M=8, num_stages=2, num_warps=4
+  triton_bmm_12970 0.0835 ms 89.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=32, BLOCK_N=16, EVEN_K=False, GROUP_M=8, num_stages=2, num_warps=2
+  triton_bmm_12972 0.0836 ms 88.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=16, EVEN_K=False, GROUP_M=8, num_stages=5, num_warps=4
+  triton_bmm_12971 0.0842 ms 88.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=32, BLOCK_N=16, EVEN_K=False, GROUP_M=8, num_stages=5, num_warps=2
+SingleProcess AUTOTUNE benchmarking takes 0.5660 seconds and 0.0003 seconds precompiling for 12 choices
+AUTOTUNE mm(40x1024, 1024x256)
+  triton_mm_12990 0.0743 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_12983 0.0746 ms 99.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_12980 0.0755 ms 98.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=1, num_warps=2
+  triton_mm_12991 0.0760 ms 97.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_12981 0.0764 ms 97.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_12986 0.0766 ms 97.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_12993 0.0766 ms 97.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_12994 0.0767 ms 97.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_12996 0.0767 ms 97.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_12982 0.0775 ms 95.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 0.8044 seconds and 0.0003 seconds precompiling for 18 choices
+AUTOTUNE bmm(32x10x256, 32x256x978)
+  triton_bmm_12998 0.0740 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=16, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=2
+  triton_bmm_12997 0.0766 ms 96.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=16, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=1, num_warps=2
+  triton_bmm_13013 0.0771 ms 96.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=16, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_bmm_13001 0.0773 ms 95.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=16, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=2
+  triton_bmm_13004 0.0785 ms 94.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_bmm_12999 0.0788 ms 93.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_bmm_13005 0.0791 ms 93.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_bmm_13006 0.0796 ms 93.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_bmm_13000 0.0800 ms 92.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=2
+  triton_bmm_13003 0.0815 ms 90.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 0.8429 seconds and 0.0003 seconds precompiling for 18 choices
+AUTOTUNE bmm(32x10x978, 32x978x256)
+  triton_bmm_13032 0.0747 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=16, BLOCK_N=32, EVEN_K=False, GROUP_M=8, num_stages=2, num_warps=2
+  triton_bmm_13033 0.0760 ms 98.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, EVEN_K=False, GROUP_M=8, num_stages=5, num_warps=4
+  triton_bmm_13038 0.0761 ms 98.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=16, BLOCK_N=64, EVEN_K=False, GROUP_M=8, num_stages=3, num_warps=4
+  triton_bmm_13044 0.0773 ms 96.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, EVEN_K=False, GROUP_M=8, num_stages=3, num_warps=4
+  triton_bmm_13042 0.0776 ms 96.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=16, BLOCK_N=128, EVEN_K=False, GROUP_M=8, num_stages=3, num_warps=4
+  triton_bmm_13045 0.0776 ms 96.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, EVEN_K=False, GROUP_M=8, num_stages=4, num_warps=4
+  triton_bmm_13035 0.0780 ms 95.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=16, BLOCK_N=32, EVEN_K=False, GROUP_M=8, num_stages=5, num_warps=2
+  triton_bmm_13037 0.0785 ms 95.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, EVEN_K=False, GROUP_M=8, num_stages=2, num_warps=4
+  triton_bmm_13047 0.0787 ms 95.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=16, BLOCK_N=128, EVEN_K=False, GROUP_M=8, num_stages=5, num_warps=8
+  triton_bmm_13041 0.0793 ms 94.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=16, BLOCK_N=128, EVEN_K=False, GROUP_M=8, num_stages=4, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 0.7898 seconds and 0.0003 seconds precompiling for 18 choices
+AUTOTUNE mm(40x4096, 4096x1024)
+  triton_mm_13106 0.0787 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=8
+  triton_mm_13100 0.0793 ms 99.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_13110 0.0800 ms 98.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_13113 0.0808 ms 97.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_13111 0.0808 ms 97.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=4
+  triton_mm_13107 0.0809 ms 97.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+  triton_mm_13101 0.0817 ms 96.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_13115 0.0819 ms 96.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_13109 0.0844 ms 93.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_13103 0.0846 ms 93.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 0.8247 seconds and 0.0003 seconds precompiling for 18 choices
+E0804 20:35:55.651000 101455 .venv/lib/python3.11/site-packages/torch/_inductor/select_algorithm.py:2100] [6/0] Runtime error during autotuning: 
+E0804 20:35:55.651000 101455 .venv/lib/python3.11/site-packages/torch/_inductor/select_algorithm.py:2100] [6/0] No valid triton configs. OutOfResources: out of resource: shared memory, Required: 196608, Hardware limit: 166912. Reducing block sizes or `num_stages` may help.. 
+E0804 20:35:55.651000 101455 .venv/lib/python3.11/site-packages/torch/_inductor/select_algorithm.py:2100] [6/0] Ignoring this choice.
+AUTOTUNE addmm(40x32, 40x1024, 1024x32)
+  triton_mm_15725 0.0774 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_15718 0.0777 ms 99.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_15720 0.0779 ms 99.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_15730 0.0783 ms 98.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=8
+  triton_mm_15724 0.0784 ms 98.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=8
+  triton_mm_15729 0.0790 ms 98.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=8
+  triton_mm_15726 0.0795 ms 97.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=4, num_warps=8
+  triton_mm_15723 0.0796 ms 97.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=2, num_warps=4
+  triton_mm_15727 0.0797 ms 97.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=3, num_warps=4
+  triton_mm_15719 0.0803 ms 96.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=32, BLOCK_N=32, EVEN_K=True, GROUP_M=8, num_stages=5, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 0.6989 seconds and 0.0003 seconds precompiling for 16 choices
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [128,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [129,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [130,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [131,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [132,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [133,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [134,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [135,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [136,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [137,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [138,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [139,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [140,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [141,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [142,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [143,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [144,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [145,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [146,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [147,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [148,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [149,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [150,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [151,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [152,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [153,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [154,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [155,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [156,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [157,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [158,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [159,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [224,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [225,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [226,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [227,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [228,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [229,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [230,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [231,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [232,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [233,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [234,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [235,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [236,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [237,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [238,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [239,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [240,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [241,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [242,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [243,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [244,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [245,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [246,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [247,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [248,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [249,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [250,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [251,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [252,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [253,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [254,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [879,0,0], thread: [255,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [128,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [129,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [130,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [131,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [132,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [133,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [134,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [135,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [136,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [137,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [138,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [139,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [140,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [141,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [142,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [143,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [144,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [145,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [146,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [147,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [148,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [149,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [150,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [151,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [152,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [153,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [154,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [155,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [156,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [157,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [158,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [873,0,0], thread: [159,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [128,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [129,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [130,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [131,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [132,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [133,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [134,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [135,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [136,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [137,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [138,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [139,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [140,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [141,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [142,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [143,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [144,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [145,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [146,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [147,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [148,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [149,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [150,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [151,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [152,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [153,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [154,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [155,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [156,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [157,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [158,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [946,0,0], thread: [159,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [0,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [1,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [2,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [3,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [4,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [5,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [6,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [7,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [8,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [9,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [10,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [11,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [12,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [13,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [14,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [15,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [16,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [17,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [18,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [19,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [20,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [21,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [22,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [23,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [24,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [25,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [26,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [27,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [28,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [29,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [30,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+/tmp/torchinductor_work/s5/cs5ouuh7267fsuco6hqr5kjhxbo4gbrtbc3dlvmsydcisuw545o5.py:62: unknown: block: [454,0,0], thread: [31,0,0] Assertion `index out of bounds: 0 <= tl.broadcast_to(tmp23, [XBLOCK, R0_BLOCK]) < 257152` failed.
+Traceback (most recent call last):
+  File "/home/work/hyunmokchoi/openpi/bench_stream_overlap.py", line 232, in <module>
+    main()
+  File "/home/work/hyunmokchoi/openpi/bench_stream_overlap.py", line 201, in main
+    o_mean, o_p50 = timed(run_overlap, args.iters)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/hyunmokchoi/openpi/bench_stream_overlap.py", line 111, in timed
+    torch.cuda.synchronize()
+  File "/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py", line 1040, in synchronize
+    return torch._C._cuda_synchronize()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

@@ -1,0 +1,17 @@
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+GPU free at start    : 78.8 / 79.3 GiB
+/home/work/hyunmokchoi/openpi/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+model load           : 83.7 s
+
+=== compile mode: max-autotune-no-cudagraphs ===
+warming...
+  prefill B=2           :   80.12 ms
+  denoise B=4  x4        :   40.62 ms
+  serial (sum)          :  108.13 ms
+  two streams           :  121.36 ms
+  perfect-overlap floor :   80.12 ms
+  -> saved -13.23 ms, overlap efficiency -32.6%
+
+wrote data/bench_stream_overlap.json
